@@ -1,15 +1,18 @@
 const app = {
     data() {
         return {
+            firstName: (firstName = localStorage.getItem('firstName')) ? firstName : "",
+            lastName: (lastName = localStorage.getItem('lastName')) ? lastName : "",
+            email: (email = localStorage.getItem('email')) ? email : "",
             blankLine : "_____________________________________________",
             docDefinition: { 
                 // Document Meta Data (Visible in document properties)
                 info: {
-                  title: "Title of Document",
-                  author: "Author Name",
+                  title: "Formulaire d’inscription à la VAE",
+                  author: "Julien.Jespersen@unige.ch",
                   subject: "Subject of Document",
                   keywords: "Keywords for Document",
-                  creator: "XYZ Solutions Inc.",
+                  creator: "Université de Genève",
                   producer: "pdfmake-0.2.6",
                   creationDate: new Date(),
                   modDate: new Date()
@@ -17,7 +20,17 @@ const app = {
         
                 pageSize: "A4",
                 pageOrientation: "portrait",
-                pageMargins: [10, 10, 10, 10],
+                pageMargins: [20, 20, 20, 20],
+                footer: function(currentPage, pageCount) { return 'page ' + currentPage.toString() + ' sur ' + pageCount; },
+                defaultStyle: {
+                    font: "Roboto",
+                    fontSize: 12,
+                    color: "#000000",
+                    normal: true,
+                    bold: false,
+                    italics: false,
+                    bolditalics: false
+                },
                 styles: {
                     "text-left": {
                       alignment: "left"
@@ -28,10 +41,15 @@ const app = {
                     "text-right": {
                       alignment: "right"
                     },
+                    'entry': {
+                      fontSize: 8,
+                      bold: true,
+                      color: '#555',
+                    },
                     'bold': {
                       bold: true
                     },
-                  },
+                },
           
                 content: [
                     "This is a simple text line.",
@@ -39,6 +57,11 @@ const app = {
             },
         }
     },
+    watch: {
+        firstName: function () {localStorage.setItem('firstName', this.firstName)},
+        lastName: function () {localStorage.setItem('lastName', this.lastName)},
+        email: function () {localStorage.setItem('email', this.email)},
+    },    
     methods: {
         populateDocDefinition() {
             this.docDefinition.content = []
@@ -46,13 +69,14 @@ const app = {
                 console.log(input.value)
                 this.docDefinition.content.push(
                     {
-                        text: input.id,
-                        style: 'bold'
+                        text: input.previousElementSibling.innerText,
+                        style: 'entry'
                     }
                 )
                 this.docDefinition.content.push(
                     {
                         text: (input.value ? input.value : this.blankLine),
+                        marginBottom: 10
                     }
                 )
             }

@@ -32,7 +32,7 @@ const App = {
         defaultStyle: {
           font: "Roboto",
           fontSize: 12,
-          color: "#404040",
+          color: "#4f40ff",
           normal: true,
           bold: false,
           italics: false,

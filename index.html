@@ -21,6 +21,7 @@
 <body class="bg-light container">
     <section class="row">
         <h1>Inscription à la VAE</h1>
+        <p>Les données saisies dans ce formulaire sont enregistrées automatiquement dans votre navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
 
         <div id="app">
             <form>
@@ -32,14 +33,14 @@
                     <input id="lastName" type="text" v-model="email" class="form-control mb-3">
 
                     <label for="email" class="form-label">Adresse e-mail</label>
-                    <input id="email" type="text" v-model="lastName" class="form-control mb-3" placeholder="Enter your e-mail" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">
-                        enter your e-mail
+                    <input id="email" type="text" v-model="lastName" class="form-control" placeholder="Enter your e-mail" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text mb-3">
+                        saisissez une adresse e-mail valide
                     </div>                
                 </fieldset>
             </form>
-            <button @click="printOut">log</button>
-            <button @click="downloadPdf">PDF</button>
+            <button @click="printOut">afficher PDF</button>
+            <button @click="downloadPdf">télécharger PDF</button>
         </div>
         
         
