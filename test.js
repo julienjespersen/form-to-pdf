@@ -4,7 +4,7 @@ const app = {
             firstName: (firstName = localStorage.getItem('firstName')) ? firstName : "",
             lastName: (lastName = localStorage.getItem('lastName')) ? lastName : "",
             email: (email = localStorage.getItem('email')) ? email : "",
-            blankLine : "_____________________________________________",
+            blankLine: "_____________________________________________",
             docDefinition: { 
                 // Document Meta Data (Visible in document properties)
                 info: {
@@ -21,7 +21,14 @@ const app = {
                 pageSize: "A4",
                 pageOrientation: "portrait",
                 pageMargins: [20, 20, 20, 20],
-                footer: function(currentPage, pageCount) { return 'page ' + currentPage.toString() + ' sur ' + pageCount; },
+                footer: function(currentPage, pageCount) {
+                    return {
+                        text: lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                        fontSize: 7.5,
+                        margin: [20, 2, 2, 20]
+                    }
+                    //  return lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString()
+                    },
                 defaultStyle: {
                     font: "Roboto",
                     fontSize: 12,

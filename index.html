@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8">
@@ -15,10 +15,18 @@
     <!-- PDFMAKE VFS_FONTS 0.2.6 CDN PRODUCTION -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/vfs_fonts.min.js" integrity="sha512-P0bOMePRS378NwmPDVPU455C/TuxDS+8QwJozdc7PGgN8kLqR4ems0U/3DeJkmiE31749vYWHvBOtR+37qDCZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <style>
+        .form-label {
+            font-weight: lighter;
+        }
+        .form-control {
+            font-weight: bolder;
+        }
+    </style>
 
     </head>
 
-<body class="bg-light container">
+<body class="container">
     <section class="row">
         <h1>Inscription à la VAE</h1>
         <p>Les données saisies dans ce formulaire sont enregistrées automatiquement dans votre navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
@@ -26,21 +34,73 @@
         <div id="app">
             <form>
                 <fieldset><legend>Informations personnelles</legend>
-                    <label for="firstName" class="form-label">Prénom</label>
+                    <label for="firstName" class="form-label">Prénom(s)</label>
                     <input id="firstName" type="text" v-model="firstName" class="form-control mb-3">
 
-                    <label for="lastName" class="form-label">Nom</label>
-                    <input id="lastName" type="text" v-model="email" class="form-control mb-3">
+                    <label for="lastName" class="form-label">Nom(s)</label>
+                    <input id="lastName" type="text" v-model="lastName" class="form-control mb-3">
 
-                    <label for="email" class="form-label">Adresse e-mail</label>
-                    <input id="email" type="text" v-model="lastName" class="form-control" placeholder="Enter your e-mail" aria-describedby="emailHelp">
+                    <label for="maidenName" class="form-label">Nom(s) de jeune fille</label>
+                    <input id="maidenName" type="text" v-model="maidenName" class="form-control mb-3">
+
+                    <label for="birthDate" class="form-label">Date de naissance</label>
+                    <input id="birthDate" type="date" v-model="birthDate" class="form-control mb-3">
+
+                    <label for="gender" class="form-label">Sexe</label>
+                    <select id="gender" v-model="gender" class="form-select mb-3">
+                        <option selected></option>
+                        <option value="0">Femme</option>
+                        <option value="1">Homme</option>
+                    </select>
+
+                    <label for="nativeLanguage" class="form-label">Langue maternelle</label>
+                    <input id="nativeLanguage" type="text" v-model="nativeLanguage" class="form-control mb-3">
+
+                    <label for="languages" class="form-label">Autre(s) langue(s) maîtrisée(s)</label>
+                    <input id="languages" type="text" v-model="languages" class="form-control mb-3">
+
+                    <label for="maritalStatus" class="form-label">État civil</label>
+                    <select id="maritalStatus" v-model="maritalStatus" class="form-select mb-3">
+                        <option selected></option>
+                        <option value="c">Célibataire</option>
+                        <option value="m">Marié‑e</option>
+                        <option value="d">Divorcé‑e</option>
+                        <option value="v">Veuf/ve</option>
+                    </select>
+
+                    <label for="nationality" class="form-label">Nationalité</label>
+                    <input id="nationality" type="text" v-model="nationality" class="form-control mb-3">
+
+                    <label for="originCanton" class="form-label">Canton d’origine</label>
+                    <input id="originCanton" type="text" v-model="originCanton" class="form-control" aria-describedby="originCantonHelp">
+                    <div id="originCantonHelp" class="form-text mb-3">
+                        si Suisse‑sse, indiquez le canton
+                    </div>                
+
+                    <label for="authorisation" class="form-label">Permis</label>
+                    <select id="authorisation" v-model="authorisation" class="form-select" aria-describedby="authorisationHelp">
+                        <option selected></option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="r">Réfugié‑e</option>
+                        <option value="d">DFAE</option>
+                    </select>
+                    <div id="authorisationHelp" class="form-text mb-3">
+                        si non Suisse‑see, indiquez le type de permis d’établissement
+                    </div>                
+
+                    <label for="email" class="form-label">Adresse e‑mail</label>
+                    <input id="email" type="text" v-model="email" class="form-control" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text mb-3">
-                        saisissez une adresse e-mail valide
+                        saisissez une adresse e‑mail valide
                     </div>                
                 </fieldset>
             </form>
-            <button @click="printOut">afficher PDF</button>
-            <button @click="downloadPdf">télécharger PDF</button>
+            <div class="row">
+
+                <button class="col-3 mx-3 btn btn-secondary" @click="printOut">afficher PDF</button>
+                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf">télécharger PDF</button>
+            </div>
         </div>
         
         
