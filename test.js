@@ -1,10 +1,11 @@
 const app = {
     data() {
         return {
-            firstName: (firstName = localStorage.getItem('firstName')) ? firstName : "",
-            lastName: (lastName = localStorage.getItem('lastName')) ? lastName : "",
-            email: (email = localStorage.getItem('email')) ? email : "",
-            blankLine: "_____________________________________________",
+            test3: 'test3',
+            firstName: (firstName = localStorage.getItem('firstName')) ? firstName : '',
+            lastName: (lastName = localStorage.getItem('lastName')) ? lastName : '',
+            email: (email = localStorage.getItem('email')) ? email : '',
+            blankLine: '',
             docDefinition: { 
                 // Document Meta Data (Visible in document properties)
                 info: {
@@ -18,8 +19,8 @@ const app = {
                   modDate: new Date()
                 },
         
-                pageSize: "A4",
-                pageOrientation: "portrait",
+                pageSize: 'A4',
+                pageOrientation: 'portrait',
                 pageMargins: [20, 20, 20, 20],
                 footer: function(currentPage, pageCount) {
                     return {
@@ -45,8 +46,8 @@ const app = {
                     "text-center": {
                       alignment: "center"
                     },
-                    "text-right": {
-                      alignment: "right"
+                    'text-right': {
+                      alignment: 'right'
                     },
                     'entry': {
                       fontSize: 8,
@@ -70,6 +71,13 @@ const app = {
         email: function () {localStorage.setItem('email', this.email)},
     },    
     methods: {
+        createBlankLine: function (chars) {
+            let blankLine = ''
+            for (let i = 0; i < chars; i++) {
+                blankLine += '_'
+            }
+            return blankLine
+        },
         populateDocDefinition() {
             this.docDefinition.content = []
             document.querySelectorAll("#app form input[type='text']").forEach((input) => {
@@ -86,8 +94,7 @@ const app = {
                         marginBottom: 10
                     }
                 )
-            }
-            )
+            })
             
         },
         printOut() {
@@ -112,9 +119,14 @@ const app = {
                 a.download = "CustomFileName.pdf";
                 a.click();
               
-              });        
-            }
+            });        
+        }
+        
+    },
+    mounted() {
+        this.blankLine = this.createBlankLine(30)
     }
 }
 
 Vue.createApp(app).mount("#app");
+
