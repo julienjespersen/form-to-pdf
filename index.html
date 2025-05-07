@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="s dark">
 
 <head>
     <meta charset="utf-8">
@@ -34,11 +34,15 @@
         <div class="alert alert-info"><p>Les données saisies dans ce formulaire sont automatiquement enregistrées dans <em>ce</em> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info"><i class="fa-solid fa-info"></i>
         </div>
+        <div class="alert alert-warning"><p>Après avoir saisi vos informations, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark"><i class="fa-solid fa-eraser"></i>
+        
+        </div>
 
         <div id="app">
             <form>
                 <button class="btn btn-warning" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
-                <fieldset><legend><i class="fa-regular fa-user"></i> Informations personnelles</legend>
+                <fieldset><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
                     <label for="firstName" class="form-label">Prénom(s)</label>
                     <input id="firstName" type="text" v-model="firstName" class="form-control mb-3">
 
@@ -74,7 +78,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset><legend><i class="fa-regular fa-flag"></i> Informations civiles</legend>
+                <fieldset><legend><i class="fa-solid fa-passport"></i> Informations civiles</legend>
                     <label for="nationality" class="form-label">Nationalité</label>
                     <input id="nationality" type="text" v-model="nationality" class="form-control mb-3">
 
@@ -122,8 +126,8 @@
                     </div>
                 </fieldset>
                 <fieldset><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
-                    <div id="artFacultyHelp" class="form-text">Études entreprises dès la fin de l’école primaire</div>
-                    <div class="row">
+                    <div class="form-text">Études entreprises dès la fin de l’école primaire</div>
+                    <div class="row border-bottom mb-5">
                         <div class="col-md-5">
                             <label for="school1" class="form-label">Nom de l’école</label>
                             <input id="school1" type="text" v-model="school1" class="form-control">
@@ -140,72 +144,91 @@
                             <label for="schoolEnd1" class="form-label">Fin</label>
                             <input id="schoolEnd1" type="number" min="1930" max="2030" step="1" v-model="schoolEnd1" class="form-control mb-3" placeholder="AAAA">
                         </div>
+                        <div class="col-md-7 offset-md-2">
+                            <label for="schoolDiploma1" class="form-label">Nom du diplôme obtenu</label>
+                            <input id="schoolDiploma1" type="text" v-model="schoolDiploma1" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="schoolDiplomaYear1" class="form-label">Année d’obtention</label>
+                            <input id="schoolDiplomaYear1" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <input id="school2" type="text" v-model="school2" class="form-control" aria-label="Nom de l’école">
+                            <label for="school2" class="form-label">Nom de l’école</label>
+                            <input id="school2" type="text" v-model="school2" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
+                            <label for="schoolLocation2" class="form-label">Pays ou canton</label>
+                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                            <label for="schoolStart2" class="form-label">Début</label>
+                            <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                            <label for="schoolEnd2" class="form-label">Fin</label>
+                            <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-7 offset-md-2">
+                            <label for="schoolDiploma2" class="form-label">Nom du diplôme obtenu</label>
+                            <input id="schoolDiploma2" type="text" v-model="schoolDiploma2" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="schoolDiplomaYear2" class="form-label">Année d’obtention</label>
+                            <input id="schoolDiplomaYear2" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <input id="school3" type="text" v-model="school3" class="form-control" aria-label="Nom de l’école">
+                            <label for="school3" class="form-label">Nom de l’école</label>
+                            <input id="school3" type="text" v-model="school3" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
+                            <label for="schoolLocation3" class="form-label">Pays ou canton</label>
+                            <input id="schoolLocation3" type="text" v-model="schoolLocation3" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolStart3" type="number" min="1930" max="2030" step="1" v-model="schoolStart3" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                            <label for="schoolStart3" class="form-label">Début</label>
+                            <input id="schoolStart3" type="number" min="1930" max="2030" step="1" v-model="schoolStart3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolEnd3" type="number" min="1930" max="2030" step="1" v-model="schoolEnd3" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                            <label for="schoolEnd3" class="form-label">Fin</label>
+                            <input id="schoolEnd3" type="number" min="1930" max="2030" step="1" v-model="schoolEnd3" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-7 offset-md-2">
+                            <label for="schoolDiploma3" class="form-label">Nom du diplôme obtenu</label>
+                            <input id="schoolDiploma3" type="text" v-model="schoolDiploma3" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="schoolDiplomaYear3" class="form-label">Année d’obtention</label>
+                            <input id="schoolDiplomaYear3" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <input id="school4" type="text" v-model="school4" class="form-control" aria-label="Nom de l’école">
+                            <label for="school4" class="form-label">Nom de l’école</label>
+                            <input id="school4" type="text" v-model="school4" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <input id="schoolLocation4" type="text" v-model="schoolLocation4" class="form-control mb-3" aria-label="Pays ou canton">
+                            <label for="schoolLocation4" class="form-label">Pays ou canton</label>
+                            <input id="schoolLocation4" type="text" v-model="schoolLocation4" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolStart4" type="number" min="1930" max="2030" step="1" v-model="schoolStart4" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                            <label for="schoolStart4" class="form-label">Début</label>
+                            <input id="schoolStart4" type="number" min="1930" max="2030" step="1" v-model="schoolStart4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <input id="schoolEnd4" type="number" min="1930" max="2030" step="1" v-model="schoolEnd4" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                            <label for="schoolEnd4" class="form-label">Fin</label>
+                            <input id="schoolEnd4" type="number" min="1930" max="2030" step="1" v-model="schoolEnd4" class="form-control mb-3" placeholder="AAAA">
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-9">
-                            <label for="diploma1" class="form-label">Nom du diplôme obtenu</label>
-                            <input id="diploma1" type="text" v-model="diploma1" class="form-control">
+                        <div class="col-md-7 offset-md-2">
+                            <label for="schoolDiploma4" class="form-label">Nom du diplôme obtenu</label>
+                            <input id="schoolDiploma4" type="text" v-model="schoolDiploma4" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="diplomaYear1" class="form-label">Année d’obtention</label>
-                            <input id="diplomaYear1" type="number" min="1930" max="2030" step="1" v-model="diplomaYear1" class="form-control mb-3" placeholder="AAAA">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input id="school2" type="text" v-model="school2" class="form-control" aria-label="Nom de l’école">
-                        </div>
-                        <div class="col-md-3">
-                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
-                        </div>
-                        <div class="col-md-2">
-                            <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
-                        </div>
-                        <div class="col-md-2">
-                            <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                            <label for="schoolDiplomaYear4" class="form-label">Année d’obtention</label>
+                            <input id="schoolDiplomaYear4" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
 
@@ -213,6 +236,72 @@
                 </fieldset>
 
                 <fieldset><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
+                    <div class="row border-bottom mb-5">
+                        <div class="col-md-6">
+                            <label for="job1" class="form-label">Fonction exercée</label>
+                            <input id="job1" type="text" v-model="job1" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jobLocation1" class="form-label">Nom de l’entreprise</label>
+                            <input id="jobLocation1" type="text" v-model="jobLocation1" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-2 offset-md-3">
+                            <label for="jobStart1" class="form-label">Début</label>
+                            <input id="jobStart1" type="number" min="1930" max="2030" step="1" v-model="jobStart1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="jobEnd1" class="form-label">Fin</label>
+                            <input id="jobEnd1" type="number" min="1930" max="2030" step="1" v-model="jobEnd1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="jobDuration1" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <input id="jobDuration1" type="number" min="1" max="999" step="1" v-model="jobDuration1" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
+                        </div>
+                    </div>
+                    <div class="row border-bottom mb-5">
+                        <div class="col-md-6">
+                            <label for="job2" class="form-label">Fonction exercée</label>
+                            <input id="job2" type="text" v-model="job2" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jobLocation3" class="form-label">Nom de l’entreprise</label>
+                            <input id="jobLocation3" type="text" v-model="jobLocation3" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-2 offset-md-3">
+                            <label for="jobStart3" class="form-label">Début</label>
+                            <input id="jobStart3" type="number" min="1930" max="2030" step="1" v-model="jobStart3" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="jobEnd3" class="form-label">Fin</label>
+                            <input id="jobEnd3" type="number" min="1930" max="2030" step="1" v-model="jobEnd3" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="jobDuration3" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <input id="jobDuration3" type="number" min="1" max="999" step="1" v-model="jobDuration3" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
+                        </div>
+                    </div>
+                    <div class="row border-bottom mb-5">
+                        <div class="col-md-6">
+                            <label for="job4" class="form-label">Fonction exercée</label>
+                            <input id="job4" type="text" v-model="job4" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jobLocation4" class="form-label">Nom de l’entreprise</label>
+                            <input id="jobLocation4" type="text" v-model="jobLocation4" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-2 offset-md-3">
+                            <label for="jobStart4" class="form-label">Début</label>
+                            <input id="jobStart4" type="number" min="1930" max="2030" step="1" v-model="jobStart4" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="jobEnd4" class="form-label">Fin</label>
+                            <input id="jobEnd4" type="number" min="1930" max="2030" step="1" v-model="jobEnd4" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="jobDuration4" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <input id="jobDuration4" type="number" min="1" max="999" step="1" v-model="jobDuration4" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
                     <label for="faculty" class="form-label">Faculté, institut, école</label>
@@ -234,20 +323,33 @@
 
                     <label for="targetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté, institut, école</label>
                     <input id="targetDiploma" type="text" v-model="targetDiploma" class="form-control mb-3">
-
-                    <div id="artFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
-                    <label for="artFacultyA" class="form-label">Branche A</label>
-                    <input id="artFacultyA" type="text" v-model="artFacultyA" class="form-control mb-3" aria-describedby="artFacultyHelp">
-                    <label for="artFacultyB" class="form-label">Branche B</label>
-                    <input id="artFacultyB" type="text" v-model="artFacultyB" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                    <div class="row">
+                        <div id="artFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
+                        <div class="col-6">
+                            <label for="artFacultyA" class="form-label">Branche A</label>
+                            <input id="artFacultyA" type="text" v-model="artFacultyA" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                        </div>
+                        <div class="col-6">
+                            <label for="artFacultyB" class="form-label">Branche B</label>
+                            <input id="artFacultyB" type="text" v-model="artFacultyB" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                        </div>
+                    </div>
 
                     <div id="tifFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
-                    <label for="tifFacultyA" class="form-label">Langue A</label>
-                    <input id="tifFacultyA" type="text" v-model="tifFacultyA" class="form-control mb-3" aria-describedby="tifFacultyHelp">
-                    <label for="tifFacultyB" class="form-label">Langue B</label>
-                    <input id="tifFacultyB" type="text" v-model="tifFacultyB" class="form-control mb-3" aria-describedby="tifFacultyHelp">
-                    <label for="tifFacultyC" class="form-label">Langue C</label>
-                    <input id="tifFacultyC" type="text" v-model="tifFacultyC" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="tifFacultyA" class="form-label">Langue A</label>
+                            <input id="tifFacultyA" type="text" v-model="tifFacultyA" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                        </div>
+                        <div class="col-4">
+                            <label for="tifFacultyB" class="form-label">Langue B</label>
+                            <input id="tifFacultyB" type="text" v-model="tifFacultyB" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                        </div>
+                        <div class="col-4">
+                            <label for="tifFacultyC" class="form-label">Langue C</label>
+                            <input id="tifFacultyC" type="text" v-model="tifFacultyC" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                        </div>
+                    </div>
 
                     <label for="lawFacultyForeignLanguageExam" class="form-label">Pour la Faculté de droit, indiquez la langue étrangère choisie pour le deuxième examen écrit</label>
                     <select id="lawFacultyForeignLanguageExam" v-model="lawFacultyForeignLanguageExam" class="form-select mb-3">
@@ -261,11 +363,29 @@
                 </fieldset>
 
             </form>
+            <div class="row">
+                <dl>
+                    <dt>Documents requis à joindre à votre demande:</dt>
+                    <dd>
+                        <ul>
+                            <li>Photocopie d’une pièce d’identité</li>
+                            <li>Pour les étrangers domiciliés en Suisse: photocopie du permis de séjour</li>
+                            <li>Photo format passeport collée sur le formulaire</li>
+                            <li>Lettre de motivation (cf. point 6)</li>
+                            <li>Curriculum Vitæ</li>
+                            <li>Certificats de travail, indiquant les dates de prise et fin d’emploi, ainsi que le taux d’activité</li>
+                            <li>Photocopie des diplômes scolaires et professionnels</li>
+                            <li>Preuve de paiement de l’émolument de CHF 65.- (uniquement pour les non-porteurs d’attestations de scolarité suisses)</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <p>Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
+                <p>Nous attirons l’attention des candidat‑es sur le fait qu’il n’est pas possible de changer de faculté durant les études tant qu’un grade universitaire n’a pas été obtenu. Si les candidat‑es souhaitent choisir une autre orientation, ils/elles doivent introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
+            </div>
 
             <div class="row">
-
-                <button class="col-3 mx-3 btn btn-secondary" @click="printOut">afficher PDF</button>
-                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf">télécharger PDF</button>
+                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> Afficher PDF</button>
+                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> Télécharger PDF</button>
             </div>
         </div>
         
