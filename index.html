@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>pdf form</title>
+    <title>NPM</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- PDFMAKE CORE 0.2.6 CDN PRODUCTION -->
@@ -15,7 +15,9 @@
     <!-- PDFMAKE VFS_FONTS 0.2.6 CDN PRODUCTION -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/vfs_fonts.min.js" integrity="sha512-P0bOMePRS378NwmPDVPU455C/TuxDS+8QwJozdc7PGgN8kLqR4ems0U/3DeJkmiE31749vYWHvBOtR+37qDCZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
         .form-label {
             font-weight: lighter;
         }
@@ -28,13 +30,15 @@
 
 <body class="container">
     <section class="row">
-        <h1>Inscription à la VAE</h1>
-        <p>Les données saisies dans ce formulaire sont automatiquement enregistrées dans votre navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
+        <h1>Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent</h1>
+        <div class="alert alert-info"><p>Les données saisies dans ce formulaire sont automatiquement enregistrées dans <em>ce</em> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info"><i class="fa-solid fa-info"></i>
+        </div>
 
         <div id="app">
-            <input type="text" v-model="test3" class="form-control mb-3">
             <form>
-                <fieldset><legend>Informations personnelles</legend>
+                <button class="btn btn-warning" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+                <fieldset><legend><i class="fa-regular fa-user"></i> Informations personnelles</legend>
                     <label for="firstName" class="form-label">Prénom(s)</label>
                     <input id="firstName" type="text" v-model="firstName" class="form-control mb-3">
 
@@ -50,8 +54,8 @@
                     <label for="gender" class="form-label">Sexe</label>
                     <select id="gender" v-model="gender" class="form-select mb-3">
                         <option selected></option>
-                        <option value="0">Femme</option>
-                        <option value="1">Homme</option>
+                        <option value="Femme">Femme</option>
+                        <option value="Homme">Homme</option>
                     </select>
 
                     <label for="nativeLanguage" class="form-label">Langue maternelle</label>
@@ -63,12 +67,14 @@
                     <label for="maritalStatus" class="form-label">État civil</label>
                     <select id="maritalStatus" v-model="maritalStatus" class="form-select mb-3">
                         <option selected></option>
-                        <option value="c">Célibataire</option>
-                        <option value="m">Marié‑e</option>
-                        <option value="d">Divorcé‑e</option>
-                        <option value="v">Veuf/ve</option>
+                        <option value="Célibataire">Célibataire</option>
+                        <option value="Marié‑e">Marié‑e</option>
+                        <option value="Divorcé‑e">Divorcé‑e</option>
+                        <option value="Veuf/ve">Veuf/ve</option>
                     </select>
+                </fieldset>
 
+                <fieldset><legend><i class="fa-regular fa-flag"></i> Informations civiles</legend>
                     <label for="nationality" class="form-label">Nationalité</label>
                     <input id="nationality" type="text" v-model="nationality" class="form-control mb-3">
 
@@ -87,16 +93,175 @@
                         <option value="d">DFAE</option>
                     </select>
                     <div id="authorisationHelp" class="form-text mb-3">
-                        si non Suisse‑see, indiquez le type de permis d’établissement
-                    </div>                
+                        si non Suisse‑sse, indiquez le type de permis d’établissement
+                    </div>
+                </fieldset>
 
+                <fieldset><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
                     <label for="email" class="form-label">Adresse e‑mail</label>
                     <input id="email" type="text" v-model="email" class="form-control" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text mb-3">
                         saisissez une adresse e‑mail valide
-                    </div>                
+                    </div>
+                    <label for="phone" class="form-label">Téléphone</label>
+                    <input id="phone" type="text" v-model="phone" class="form-control mb-3">
+                    
+                    <label for="address" class="form-label">Adresse</label>
+                    <input id="address" type="text" v-model="address" class="form-control mb-3">
+                    
+                    <label for="postalCode" class="form-label">Code postal</label>
+                    <input id="postalCode" type="text" v-model="postalCode" class="form-control mb-3">
+                    
+                    <label for="city" class="form-label">Localité</label>
+                    <input id="city" type="text" v-model="city" class="form-control mb-3">
+                    
+                    <label for="country" class="form-label">Pays ou canton</label>
+                    <input id="country" type="text" v-model="country" class="form-control ">
+                    <div id="authorisationHelp" class="form-text mb-3">
+                        si votre adresse est en Suisse, indiquez le canton
+                    </div>
                 </fieldset>
+                <fieldset><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
+                    <div id="artFacultyHelp" class="form-text">Études entreprises dès la fin de l’école primaire</div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="school1" class="form-label">Nom de l’école</label>
+                            <input id="school1" type="text" v-model="school1" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="schoolLocation1" class="form-label">Pays ou canton</label>
+                            <input id="schoolLocation1" type="text" v-model="schoolLocation1" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="schoolStart1" class="form-label">Début</label>
+                            <input id="schoolStart1" type="number" min="1930" max="2030" step="1" v-model="schoolStart1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="schoolEnd1" class="form-label">Fin</label>
+                            <input id="schoolEnd1" type="number" min="1930" max="2030" step="1" v-model="schoolEnd1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input id="school2" type="text" v-model="school2" class="form-control" aria-label="Nom de l’école">
+                        </div>
+                        <div class="col-md-3">
+                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input id="school3" type="text" v-model="school3" class="form-control" aria-label="Nom de l’école">
+                        </div>
+                        <div class="col-md-3">
+                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolStart3" type="number" min="1930" max="2030" step="1" v-model="schoolStart3" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolEnd3" type="number" min="1930" max="2030" step="1" v-model="schoolEnd3" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input id="school4" type="text" v-model="school4" class="form-control" aria-label="Nom de l’école">
+                        </div>
+                        <div class="col-md-3">
+                            <input id="schoolLocation4" type="text" v-model="schoolLocation4" class="form-control mb-3" aria-label="Pays ou canton">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolStart4" type="number" min="1930" max="2030" step="1" v-model="schoolStart4" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolEnd4" type="number" min="1930" max="2030" step="1" v-model="schoolEnd4" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-9">
+                            <label for="diploma1" class="form-label">Nom du diplôme obtenu</label>
+                            <input id="diploma1" type="text" v-model="diploma1" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="diplomaYear1" class="form-label">Année d’obtention</label>
+                            <input id="diplomaYear1" type="number" min="1930" max="2030" step="1" v-model="diplomaYear1" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input id="school2" type="text" v-model="school2" class="form-control" aria-label="Nom de l’école">
+                        </div>
+                        <div class="col-md-3">
+                            <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3" aria-label="Pays ou canton">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA" aria-label="Début">
+                        </div>
+                        <div class="col-md-2">
+                            <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA" aria-label="Fin">
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+                <fieldset><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
+                </fieldset>
+                <fieldset><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
+                    <label for="faculty" class="form-label">Faculté, institut, école</label>
+                    <select id="faculty" v-model="faculty" class="form-select mb-3">
+                        <option selected></option>
+                        <option>Sciences</option>
+                        <option>Lettres</option>
+                        <option>Sciences de la société</option>
+                        <option>Économie et management</option>
+                        <option>Droit</option>
+                        <option>Théologie</option>
+                        <option>FPSE Psychologie</option>
+                        <option>FPSE Sciences de l’éducation</option>
+                        <option>Traduction et interprétation</option>
+                        <option>Global Studies Institute</option>
+                        <option>École de langue et civilisation françaises</option>
+                        <option>Centre universitaire d’informatique</option>
+                    </select>
+
+                    <label for="targetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté, institut, école</label>
+                    <input id="targetDiploma" type="text" v-model="targetDiploma" class="form-control mb-3">
+
+                    <div id="artFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
+                    <label for="artFacultyA" class="form-label">Branche A</label>
+                    <input id="artFacultyA" type="text" v-model="artFacultyA" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                    <label for="artFacultyB" class="form-label">Branche B</label>
+                    <input id="artFacultyB" type="text" v-model="artFacultyB" class="form-control mb-3" aria-describedby="artFacultyHelp">
+
+                    <div id="tifFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
+                    <label for="tifFacultyA" class="form-label">Langue A</label>
+                    <input id="tifFacultyA" type="text" v-model="tifFacultyA" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                    <label for="tifFacultyB" class="form-label">Langue B</label>
+                    <input id="tifFacultyB" type="text" v-model="tifFacultyB" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                    <label for="tifFacultyC" class="form-label">Langue C</label>
+                    <input id="tifFacultyC" type="text" v-model="tifFacultyC" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+
+                    <label for="lawFacultyForeignLanguageExam" class="form-label">Pour la Faculté de droit, indiquez la langue étrangère choisie pour le deuxième examen écrit</label>
+                    <select id="lawFacultyForeignLanguageExam" v-model="lawFacultyForeignLanguageExam" class="form-select mb-3">
+                        <option selected></option>
+                        <option>Allemand</option>
+                        <option>Anglais</option>
+                    </select>
+                    <label for="lawFacultyThemeExam" class="form-label">Pour la Faculté de droit, indiquez le thème oral que vous souhaitez développer</label>
+                    <input id="lawFacultyThemeExam" type="text" v-model="lawFacultyThemeExam" class="form-control mb-3">
+
+                </fieldset>
+
             </form>
+
             <div class="row">
 
                 <button class="col-3 mx-3 btn btn-secondary" @click="printOut">afficher PDF</button>
