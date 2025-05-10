@@ -253,34 +253,55 @@ const app = {
             return blankLine
         },
         populateDocDefinition() {
+            document.querySelectorAll('#app form input, #app form select').forEach((input) => {
+            this.docDefinition.content.push( 
+            
+                {
+                    text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 15, bold: true }],
+                },
+                )
+            })
+
+
+
+
+
+            /*
             this.docDefinition.content = []
             document.querySelectorAll('#app form input, #app form select').forEach((input) => {
-                console.log(input.value)
-                this.docDefinition.content.push(
-                    {
-                        text: input.previousElementSibling.innerText,
-                        style: 'entry'
-                    }
-                )
-            if (input.value !== '') {
-                this.docDefinition.content.push(
-                    {
-                        text: input.value,
-                        style: 'value',
-                        marginBottom: 10
-                    }
-                )
-            } else {
+                // console.log(input.value)
+                if (input.value !== '') {
                     this.docDefinition.content.push(
                         {
-                            text: this.blankLine,
-                            style: 'underline',
-                            unbreakable: true,
-                            // marginBottom: 10
+                            text: input.previousElementSibling.innerText,
+                            style: 'entry'
+                        },
+                        {
+                            text: input.value,
+                            style: 'value',
+                            marginLeft: 10,
+                            marginBottom: 10
                         }
                     )
+    
+                } else {
+                    this.docDefinition.content.push(
+                        {
+                        text: input.previousElementSibling.innerText,
+                        style: 'entry'
+                    },
+                    {
+                        text: this.blankLine,
+                        style: 'underline',
+                        marginLeft: 10,
+                        unbreakable: true,
+                        // marginBottom: 10
+                    }
+                )
+
                 }
             })
+            */
         },
         printOut() {
             this.populateDocDefinition()
