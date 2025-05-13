@@ -83,7 +83,7 @@ const app = {
             docDefinition: { 
                 // Document Meta Data (Visible in document properties)
                 info: {
-                  title: "Formulaire d’inscription à la VAE",
+                  title: "Demande d’immatriculation à l’Université de Genève pour non titulaire d’un certificat de maturité",
                   author: "Julien.Jespersen@unige.ch",
                   subject: "Subject of Document",
                   keywords: "Keywords for Document",
@@ -98,7 +98,7 @@ const app = {
                 pageMargins: [20, 20, 20, 20],
                 footer: function(currentPage, pageCount) {
                     return {
-                        text: lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                        text: 'NPM ' + lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
                         fontSize: 7.5,
                         margin: [20, 2, 2, 20]
                     }
@@ -151,9 +151,7 @@ const app = {
                     },
                 },
           
-                content: [
-                    "This is a simple text line.",
-                ],
+                content: [],
             },
         }
     },
@@ -253,11 +251,12 @@ const app = {
             return blankLine
         },
         populateDocDefinition() {
+            this.docDefinition.content = []
             document.querySelectorAll('#app form input, #app form select').forEach((input) => {
             this.docDefinition.content.push( 
             
                 {
-                    text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 15, bold: true }],
+                    text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],
                 },
                 )
             })
@@ -322,7 +321,7 @@ const app = {
                 
                 a.href = URL.createObjectURL(file);
                 a.target = "_blank";
-                a.download = "CustomFileName.pdf";
+                a.download = 'UNIGE_NPM_' + this.lastName + '.pdf';
                 a.click();
               
             });        
