@@ -2,26 +2,26 @@ const app = {
     data() {
         return {
             // personal informations 
-            firstName: (firstName = localStorage.getItem('firstName')) ? firstName : '',
-            lastName: (lastName = localStorage.getItem('lastName')) ? lastName : '',
-            maidenName: (maidenName = localStorage.getItem('maidenName')) ? maidenName : '',
-            birthDate: (birthDate = localStorage.getItem('birthDate')) ? birthDate : '',
-            gender: (gender = localStorage.getItem('gender')) ? gender : '',
-            nativeLanguage: (nativeLanguage = localStorage.getItem('nativeLanguage')) ? nativeLanguage : '',
-            languages: (languages = localStorage.getItem('languages')) ? languages : '',
-            maritalStatus: (maritalStatus = localStorage.getItem('maritalStatus')) ? maritalStatus : '',
+            personFirstName: (personFirstName = localStorage.getItem('personFirstName')) ? personFirstName : '',
+            personLastName: (personLastName = localStorage.getItem('personLastName')) ? personLastName : '',
+            personMaidenName: (personMaidenName = localStorage.getItem('personMaidenName')) ? personMaidenName : '',
+            personBirthDate: (personBirthDate = localStorage.getItem('personBirthDate')) ? personBirthDate : '',
+            personGender: (personGender = localStorage.getItem('personGender')) ? personGender : '',
+            personNativeLanguage: (personNativeLanguage = localStorage.getItem('personNativeLanguage')) ? personNativeLanguage : '',
+            personLanguages: (personLanguages = localStorage.getItem('personLanguages')) ? personLanguages : '',
+            personMaritalStatus: (personMaritalStatus = localStorage.getItem('personMaritalStatus')) ? personMaritalStatus : '',
             // citizenship informations
-            nationality: (nationality = localStorage.getItem('nationality')) ? nationality : '',
-            originCanton: (originCanton = localStorage.getItem('originCanton')) ? originCanton : '',
-            authorisation: (authorisation = localStorage.getItem('authorisation')) ? authorisation : '',
+            citizenNationality: (citizenNationality = localStorage.getItem('citizenNationality')) ? citizenNationality : '',
+            citizenOriginCanton: (citizenOriginCanton = localStorage.getItem('citizenOriginCanton')) ? citizenOriginCanton : '',
+            citizenAuthorisation: (citizenAuthorisation = localStorage.getItem('citizenAuthorisation')) ? citizenAuthorisation : '',
             // contact informations
-            email: (email = localStorage.getItem('email')) ? email : '',
-            phone: (phone = localStorage.getItem('phone')) ? phone : '',
-            residency: (residency = localStorage.getItem('residency')) ? residency : '',
-            address: (address = localStorage.getItem('address')) ? address : '',
-            postalCode: (postalCode = localStorage.getItem('postalCode')) ? postalCode : '',
-            city: (city = localStorage.getItem('city')) ? city : '',
-            country: (country = localStorage.getItem('country')) ? country : '',
+            contactEmail: (contactEmail = localStorage.getItem('contactEmail')) ? contactEmail : '',
+            contactPhone: (contactPhone = localStorage.getItem('contactPhone')) ? contactPhone : '',
+            contactResidency: (contactResidency = localStorage.getItem('contactResidency')) ? contactResidency : '',
+            contactAddress: (contactAddress = localStorage.getItem('contactAddress')) ? contactAddress : '',
+            contactPostalCode: (contactPostalCode = localStorage.getItem('contactPostalCode')) ? contactPostalCode : '',
+            contactCity: (contactCity = localStorage.getItem('contactCity')) ? contactCity : '',
+            contactCountry: (contactCountry = localStorage.getItem('contactCountry')) ? contactCountry : '',
             // school informations
             school1: (school1 = localStorage.getItem('school1')) ? school1 : '',
             schoolLocation1: (schoolLocation1 = localStorage.getItem('schoolLocation1')) ? schoolLocation1 : '',
@@ -69,15 +69,15 @@ const app = {
             jobEnd4: (jobEnd4 = localStorage.getItem('jobEnd4')) ? jobEnd4 : '',
             jobDuration4: (jobDuration4 = localStorage.getItem('jobDuration4')) ? jobDuration4 : '',
             // faculty informations
-            faculty: (faculty = localStorage.getItem('faculty')) ? faculty : '',
-            targetDiploma: (targetDiploma = localStorage.getItem('targetDiploma')) ? targetDiploma : '',
-            artFacultyA: (artFacultyA = localStorage.getItem('artFacultyA')) ? artFacultyA : '',
-            artFacultyB: (artFacultyB = localStorage.getItem('artFacultyB')) ? artFacultyB : '',
-            tifFacultyA: (tifFacultyA = localStorage.getItem('tifFacultyA')) ? tifFacultyA : '',
-            tifFacultyB: (tifFacultyB = localStorage.getItem('tifFacultyB')) ? tifFacultyB : '',
-            tifFacultyC: (tifFacultyC = localStorage.getItem('tifFacultyC')) ? tifFacultyC : '',
-            lawFacultyForeignLanguageExam: (lawFacultyForeignLanguageExam = localStorage.getItem('lawFacultyForeignLanguageExam')) ? lawFacultyForeignLanguageExam : '',
-            lawFacultyThemeExam: (lawFacultyThemeExam = localStorage.getItem('lawFacultyThemeExam')) ? lawFacultyThemeExam : '',
+            unigeFaculty: (unigeFaculty = localStorage.getItem('unigeFaculty')) ? unigeFaculty : '',
+            unigeTargetDiploma: (unigeTargetDiploma = localStorage.getItem('unigeTargetDiploma')) ? unigeTargetDiploma : '',
+            unigeArtFacultyA: (unigeArtFacultyA = localStorage.getItem('unigeArtFacultyA')) ? unigeArtFacultyA : '',
+            unigeArtFacultyB: (unigeArtFacultyB = localStorage.getItem('unigeArtFacultyB')) ? unigeArtFacultyB : '',
+            unigeTifFacultyA: (unigeTifFacultyA = localStorage.getItem('unigeTifFacultyA')) ? unigeTifFacultyA : '',
+            unigeTifFacultyB: (unigeTifFacultyB = localStorage.getItem('unigeTifFacultyB')) ? unigeTifFacultyB : '',
+            unigeTifFacultyC: (unigeTifFacultyC = localStorage.getItem('unigeTifFacultyC')) ? unigeTifFacultyC : '',
+            unigeLawFacultyForeignLanguageExam: (unigeLawFacultyForeignLanguageExam = localStorage.getItem('unigeLawFacultyForeignLanguageExam')) ? unigeLawFacultyForeignLanguageExam : '',
+            unigeLawFacultyThemeExam: (unigeLawFacultyThemeExam = localStorage.getItem('unigeLawFacultyThemeExam')) ? unigeLawFacultyThemeExam : '',
 
             blankLine: '',
             docDefinition: { 
@@ -98,15 +98,15 @@ const app = {
                 pageMargins: [20, 20, 20, 20],
                 footer: function(currentPage, pageCount) {
                     return {
-                        text: 'NPM ' + lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                        text: 'NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
                         fontSize: 7.5,
                         margin: [20, 2, 2, 20]
                     }
-                    //  return lastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString()
-                    },
+                },
                 defaultStyle: {
                     font: "Roboto",
-                    fontSize: 12,
+                    fontSize: 8,
+                    lineHeight: 1.5,
                     color: "#000000",
                     normal: true,
                     bold: false,
@@ -143,11 +143,8 @@ const app = {
                     'underline': {
                       color: '#777',
                       background: '#eff',
-
-                    //   lineHeight: 2,
                         fontSize: 18,
-                    //   decoration: 'underline',
-                      marginBottom: 10,
+                        marginBottom: 10,
                     },
                 },
           
@@ -157,26 +154,26 @@ const app = {
     },
     watch: {
         // personal informations 
-        firstName: function () {localStorage.setItem('firstName', this.firstName)},
-        lastName: function () {localStorage.setItem('lastName', this.lastName)},
-        maidenName: function () {localStorage.setItem('maidenName', this.maidenName)},
-        birthDate: function () {localStorage.setItem('birthDate', this.birthDate)},
-        gender: function () {localStorage.setItem('gender', this.gender)},
-        nativeLanguage: function () {localStorage.setItem('nativeLanguage', this.nativeLanguage)},
-        languages: function () {localStorage.setItem('languages', this.languages)},
-        maritalStatus: function () {localStorage.setItem('maritalStatus', this.maritalStatus)},
+        personFirstName: function () {localStorage.setItem('personFirstName', this.personFirstName)},
+        personLastName: function () {localStorage.setItem('personLastName', this.personLastName)},
+        personMaidenName: function () {localStorage.setItem('personMaidenName', this.personMaidenName)},
+        personBirthDate: function () {localStorage.setItem('personBirthDate', this.personBirthDate)},
+        personGender: function () {localStorage.setItem('personGender', this.personGender)},
+        personNativeLanguage: function () {localStorage.setItem('personNativeLanguage', this.personNativeLanguage)},
+        personLanguages: function () {localStorage.setItem('personLanguages', this.personLanguages)},
+        personMaritalStatus: function () {localStorage.setItem('personMaritalStatus', this.personMaritalStatus)},
         // citizenship informations
-        nationality: function () {localStorage.setItem('nationality', this.nationality)},
-        originCanton: function () {localStorage.setItem('originCanton', this.originCanton)},
-        authorisation: function () {localStorage.setItem('authorisation', this.authorisation)},
+        citizenNationality: function () {localStorage.setItem('citizenNationality', this.citizenNationality)},
+        citizenOriginCanton: function () {localStorage.setItem('originCanton', this.originCanton)},
+        citizenAuthorisation: function () {localStorage.setItem('authorisation', this.authorisation)},
         // contact informations
-        email: function () {localStorage.setItem('email', this.email)},
-        phone: function () {localStorage.setItem('phone', this.phone)},
-        residency: function () {localStorage.setItem('residency', this.residency)},
-        address: function () {localStorage.setItem('address', this.address)},
-        postalCode: function () {localStorage.setItem('postalCode', this.postalCode)},
-        city: function () {localStorage.setItem('city', this.city)},
-        country: function () {localStorage.setItem('country', this.country)},
+        contactEmail: function () {localStorage.setItem('email', this.email)},
+        contactPhone: function () {localStorage.setItem('phone', this.phone)},
+        contactResidency: function () {localStorage.setItem('residency', this.residency)},
+        contactAddress: function () {localStorage.setItem('address', this.address)},
+        contactPostalCode: function () {localStorage.setItem('postalCode', this.postalCode)},
+        contactCity: function () {localStorage.setItem('city', this.city)},
+        contactCountry: function () {localStorage.setItem('country', this.country)},
         // school informations
         school1: function () {localStorage.setItem('school1', this.school1)},
         schoolLocation1: function () {localStorage.setItem('schoolLocation1', this.schoolLocation1)},
@@ -224,20 +221,20 @@ const app = {
         jobEnd4: function () {localStorage.setItem('jobEnd4', this.jobEnd4)},
         jobDuration4: function () {localStorage.setItem('jobDuration4', this.jobDuration4)},
             // faculty informations
-        faculty: function () {localStorage.setItem('faculty', this.faculty)},
-        targetDiploma: function () {localStorage.setItem('targetDiploma', this.targetDiploma)},
-        artFacultyA: function () {localStorage.setItem('artFacultyA', this.artFacultyA)},
-        artFacultyB: function () {localStorage.setItem('artFacultyB', this.artFacultyB)},
-        tifFacultyA: function () {localStorage.setItem('tifFacultyA', this.tifFacultyA)},
-        tifFacultyB: function () {localStorage.setItem('tifFacultyB', this.tifFacultyB)},
-        tifFacultyC: function () {localStorage.setItem('tifFacultyC', this.tifFacultyC)},
-        lawFacultyForeignLanguageExam: function () {localStorage.setItem('lawFacultyForeignLanguageExam', this.lawFacultyForeignLanguageExam)},
-        lawFacultyThemeExam: function () {localStorage.setItem('lawFacultyThemeExam', this.lawFacultyThemeExam)},
+        unigeFaculty: function () {localStorage.setItem('unigeFaculty', this.unigeFaculty)},
+        unigeTargetDiploma: function () {localStorage.setItem('unigeTargetDiploma', this.unigeTargetDiploma)},
+        unigeArtFacultyA: function () {localStorage.setItem('unigeArtFacultyA', this.unigeArtFacultyA)},
+        unigeArtFacultyB: function () {localStorage.setItem('unigeArtFacultyB', this.unigeArtFacultyB)},
+        unigeTifFacultyA: function () {localStorage.setItem('unigeTifFacultyA', this.unigeTifFacultyA)},
+        unigeTifFacultyB: function () {localStorage.setItem('unigeTifFacultyB', this.unigeTifFacultyB)},
+        unigeTifFacultyC: function () {localStorage.setItem('unigeTifFacultyC', this.unigeTifFacultyC)},
+        unigeLawFacultyForeignLanguageExam: function () {localStorage.setItem('unigeLawFacultyForeignLanguageExam', this.unigeLawFacultyForeignLanguageExam)},
+        unigeLawFacultyThemeExam: function () {localStorage.setItem('unigeLawFacultyThemeExam', this.unigeLawFacultyThemeExam)},
     },    
     methods: {
         reset(event) {
             document.querySelector('form').addEventListener("reset", (event) => { 
-                confirm("Êtes-vous sûr de vouloir effacer toutes les informations et les supprimer du navigateur ?") ? localStorage.clear() : event.preventDefault();
+                confirm("Êtes-vous sûr de vouloir effacer toutes les informations et les supprimer du navigateur?") ? localStorage.clear() : event.preventDefault();
                 // localStorage.clear();
             })
         },
@@ -251,14 +248,42 @@ const app = {
             return blankLine
         },
         populateDocDefinition() {
-            this.docDefinition.content = []
+            this.docDefinition.content = [{
+                columns: [
+                    ['col1'],
+                    ['col2']
+                ]
+            }]
+            // this.docDefinition.content = []
             document.querySelectorAll('#app form input, #app form select').forEach((input) => {
-            this.docDefinition.content.push( 
-            
-                {
-                    text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],
-                },
-                )
+
+                    if (input.id.substring(0, 6) === 'person'
+                    ||  input.id.substring(0, 7) === 'citizen'
+                    ||  input.id.substring(0, 7) === 'contact') {
+                        if (input.value == '') {
+                            this.docDefinition.content[0].columns[0].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
+
+                        } else {
+
+                            this.docDefinition.content[0].columns[0].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
+                        }
+                    } else {
+                        if (input.value == '') {
+                            this.docDefinition.content[0].columns[1].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
+
+                        } else {
+
+                            this.docDefinition.content[0].columns[1].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
+                        }
+                    }
+                
+                // this.docDefinition.content[0].columns[0].text += [text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }]
+
+                // this.docDefinition.content.push( 
+                //     {
+                //         text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],
+                //     },
+                // )
             })
 
 

@@ -51,33 +51,33 @@
             <form>
                 <button class="btn btn-warning" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
                 <fieldset><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
-                    <label for="firstName" class="form-label">Prénom(s)</label>
-                    <input id="firstName" type="text" v-model="firstName" class="form-control mb-3">
+                    <label for="personFirstName" class="form-label">Prénom(s)</label>
+                    <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
 
-                    <label for="lastName" class="form-label">Nom(s)</label>
-                    <input id="lastName" type="text" v-model="lastName" class="form-control mb-3">
+                    <label for="personLastName" class="form-label">Nom(s)</label>
+                    <input id="personLastName" type="text" v-model="personLastName" class="form-control mb-3">
 
-                    <label for="maidenName" class="form-label">Nom(s) de jeune fille</label>
-                    <input id="maidenName" type="text" v-model="maidenName" class="form-control mb-3">
+                    <label for="personMaidenName" class="form-label">Nom(s) de jeune fille</label>
+                    <input id="personMaidenName" type="text" v-model="personMaidenName" class="form-control mb-3">
 
-                    <label for="birthDate" class="form-label">Date de naissance</label>
-                    <input id="birthDate" type="date" v-model="birthDate" class="form-control mb-3">
+                    <label for="personBirthDate" class="form-label">Date de naissance</label>
+                    <input id="personBirthDate" type="date" v-model="personBirthDate" class="form-control mb-3">
 
-                    <label for="gender" class="form-label">Sexe</label>
-                    <select id="gender" v-model="gender" class="form-select mb-3">
+                    <label for="personGender" class="form-label">Genre</label>
+                    <select id="personGender" v-model="personGender" class="form-select mb-3 fw-bold">
                         <option selected></option>
                         <option value="Femme">Femme</option>
                         <option value="Homme">Homme</option>
                     </select>
 
-                    <label for="nativeLanguage" class="form-label">Langue maternelle</label>
-                    <input id="nativeLanguage" type="text" v-model="nativeLanguage" class="form-control mb-3">
+                    <label for="personNativeLanguage" class="form-label">Langue maternelle</label>
+                    <input id="personNativeLanguage" type="text" v-model="personNativeLanguage" class="form-control mb-3">
 
-                    <label for="languages" class="form-label">Autre(s) langue(s) maîtrisée(s)</label>
-                    <input id="languages" type="text" v-model="languages" class="form-control mb-3">
+                    <label for="personLanguages" class="form-label">Autre(s) langue(s) maîtrisée(s)</label>
+                    <input id="personLanguages" type="text" v-model="personLanguages" class="form-control mb-3">
 
-                    <label for="maritalStatus" class="form-label">État civil</label>
-                    <select id="maritalStatus" v-model="maritalStatus" class="form-select mb-3">
+                    <label for="personMaritalStatus" class="form-label">État civil</label>
+                    <select id="personMaritalStatus" v-model="personMaritalStatus" class="form-select mb-3 fw-bold">
                         <option selected></option>
                         <option value="Célibataire">Célibataire</option>
                         <option value="Marié‑e">Marié‑e</option>
@@ -87,48 +87,48 @@
                 </fieldset>
 
                 <fieldset><legend><i class="fa-solid fa-passport"></i> Informations civiles</legend>
-                    <label for="nationality" class="form-label">Nationalité</label>
-                    <input id="nationality" type="text" v-model="nationality" class="form-control mb-3">
+                    <label for="citizenNationality" class="form-label">Nationalité</label>
+                    <input id="citizenNationality" type="text" v-model="citizenNationality" class="form-control mb-3">
 
-                    <label for="originCanton" class="form-label">Canton d’origine</label>
-                    <input id="originCanton" type="text" v-model="originCanton" class="form-control" aria-describedby="originCantonHelp">
-                    <div id="originCantonHelp" class="form-text mb-3">
+                    <label for="citizenOriginCanton" class="form-label">Canton d’origine</label>
+                    <input id="citizenOriginCanton" type="text" v-model="citizenOriginCanton" class="form-control" aria-describedby="citizenOriginCantonHelp">
+                    <div id="citizenOriginCantonHelp" class="form-text mb-3">
                         si Suisse‑sse, indiquez le canton
                     </div>                
 
-                    <label for="authorisation" class="form-label">Permis</label>
-                    <select id="authorisation" v-model="authorisation" class="form-select" aria-describedby="authorisationHelp">
+                    <label for="citizenAuthorisation" class="form-label">Permis</label>
+                    <select id="citizenAuthorisation" v-model="citizenAuthorisation" class="form-select fw-bold" aria-describedby="citizenAuthorisationHelp">
                         <option selected></option>
                         <option value="b">B</option>
                         <option value="c">C</option>
                         <option value="r">Réfugié‑e</option>
                         <option value="d">DFAE</option>
                     </select>
-                    <div id="authorisationHelp" class="form-text mb-3">
+                    <div id="citizenAuthorisationHelp" class="form-text mb-3">
                         si non Suisse‑sse, indiquez le type de permis d’établissement
                     </div>
                 </fieldset>
 
                 <fieldset><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
-                    <label for="email" class="form-label">Adresse e‑mail</label>
-                    <input id="email" type="text" v-model="email" class="form-control" aria-describedby="emailHelp">
+                    <label for="contactEmail" class="form-label">Adresse e‑mail</label>
+                    <input id="contactEmail" type="text" v-model="contactEmail" class="form-control" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text mb-3">
                         saisissez une adresse e‑mail valide
                     </div>
-                    <label for="phone" class="form-label">Téléphone</label>
-                    <input id="phone" type="text" v-model="phone" class="form-control mb-3">
+                    <label for="contactPhone" class="form-label">Téléphone</label>
+                    <input id="contactPhone" type="text" v-model="contactPhone" class="form-control mb-3">
                     
-                    <label for="address" class="form-label">Adresse</label>
-                    <input id="address" type="text" v-model="address" class="form-control mb-3">
+                    <label for="contactAddress" class="form-label">Adresse</label>
+                    <input id="contactAddress" type="text" v-model="contactAddress" class="form-control mb-3">
                     
-                    <label for="postalCode" class="form-label">Code postal</label>
-                    <input id="postalCode" type="text" v-model="postalCode" class="form-control mb-3">
+                    <label for="contactPostalCode" class="form-label">Code postal</label>
+                    <input id="contactPostalCode" type="text" v-model="contactPostalCode" class="form-control mb-3">
                     
-                    <label for="city" class="form-label">Localité</label>
-                    <input id="city" type="text" v-model="city" class="form-control mb-3">
+                    <label for="contactCity" class="form-label">Localité</label>
+                    <input id="contactCity" type="text" v-model="contactCity" class="form-control mb-3">
                     
-                    <label for="country" class="form-label">Pays ou canton</label>
-                    <input id="country" type="text" v-model="country" class="form-control ">
+                    <label for="contactCountry" class="form-label">Pays ou canton</label>
+                    <input id="contactCountry" type="text" v-model="contactCountry" class="form-control ">
                     <div id="authorisationHelp" class="form-text mb-3">
                         si votre adresse est en Suisse, indiquez le canton
                     </div>
@@ -312,8 +312,8 @@
                     </div>
                 </fieldset>
                 <fieldset><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
-                    <label for="faculty" class="form-label">Faculté, institut, école</label>
-                    <select id="faculty" v-model="faculty" class="form-select mb-3">
+                    <label for="unigeFaculty" class="form-label">Faculté, institut, école</label>
+                    <select id="unigeFaculty" v-model="unigeFaculty" class="form-select mb-3 fw-bold">
                         <option selected></option>
                         <option>Sciences</option>
                         <option>Lettres</option>
@@ -329,44 +329,44 @@
                         <option>Centre universitaire d’informatique</option>
                     </select>
 
-                    <label for="targetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté, institut, école</label>
-                    <input id="targetDiploma" type="text" v-model="targetDiploma" class="form-control mb-3">
+                    <label for="unigeTargetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté, institut, école</label>
+                    <input id="unigeTargetDiploma" type="text" v-model="unigeTargetDiploma" class="form-control mb-3">
                     <div class="row">
-                        <div id="artFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
+                        <div id="unigeArtFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
                         <div class="col-6">
-                            <label for="artFacultyA" class="form-label">Branche A</label>
-                            <input id="artFacultyA" type="text" v-model="artFacultyA" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                            <label for="unigeArtFacultyA" class="form-label">Branche A</label>
+                            <input id="unigeArtFacultyA" type="text" v-model="unigeArtFacultyA" class="form-control mb-3" aria-describedby="unigeArtFacultyHelp">
                         </div>
                         <div class="col-6">
-                            <label for="artFacultyB" class="form-label">Branche B</label>
-                            <input id="artFacultyB" type="text" v-model="artFacultyB" class="form-control mb-3" aria-describedby="artFacultyHelp">
+                            <label for="unigeArtFacultyB" class="form-label">Branche B</label>
+                            <input id="unigeArtFacultyB" type="text" v-model="unigeArtFacultyB" class="form-control mb-3" aria-describedby="unigeArtFacultyHelp">
                         </div>
                     </div>
 
-                    <div id="tifFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
+                    <div id="unigeTifFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
                     <div class="row">
                         <div class="col-4">
-                            <label for="tifFacultyA" class="form-label">Langue A</label>
-                            <input id="tifFacultyA" type="text" v-model="tifFacultyA" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                            <label for="unigeTifFacultyA" class="form-label">Langue A</label>
+                            <input id="unigeTifFacultyA" type="text" v-model="unigeTifFacultyA" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                         <div class="col-4">
-                            <label for="tifFacultyB" class="form-label">Langue B</label>
-                            <input id="tifFacultyB" type="text" v-model="tifFacultyB" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                            <label for="unigeTifFacultyB" class="form-label">Langue B</label>
+                            <input id="unigeTifFacultyB" type="text" v-model="unigeTifFacultyB" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                         <div class="col-4">
-                            <label for="tifFacultyC" class="form-label">Langue C</label>
-                            <input id="tifFacultyC" type="text" v-model="tifFacultyC" class="form-control mb-3" aria-describedby="tifFacultyHelp">
+                            <label for="unigeTifFacultyC" class="form-label">Langue C</label>
+                            <input id="unigeTifFacultyC" type="text" v-model="unigeTifFacultyC" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                     </div>
 
-                    <label for="lawFacultyForeignLanguageExam" class="form-label">Pour la Faculté de droit, indiquez la langue étrangère choisie pour le deuxième examen écrit</label>
-                    <select id="lawFacultyForeignLanguageExam" v-model="lawFacultyForeignLanguageExam" class="form-select mb-3">
+                    <label for="unigeLawFacultyForeignLanguageExam" class="form-label">Pour la Faculté de droit, indiquez la langue étrangère choisie pour le deuxième examen écrit</label>
+                    <select id="unigeLawFacultyForeignLanguageExam" v-model="unigeLawFacultyForeignLanguageExam" class="form-select mb-3 fw-bold">
                         <option selected></option>
                         <option>Allemand</option>
                         <option>Anglais</option>
                     </select>
-                    <label for="lawFacultyThemeExam" class="form-label">Pour la Faculté de droit, indiquez le thème oral que vous souhaitez développer</label>
-                    <input id="lawFacultyThemeExam" type="text" v-model="lawFacultyThemeExam" class="form-control mb-3">
+                    <label for="unigeLawFacultyThemeExam" class="form-label">Pour la Faculté de droit, indiquez le thème oral que vous souhaitez développer</label>
+                    <input id="unigeLawFacultyThemeExam" type="text" v-model="unigeLawFacultyThemeExam" class="form-control mb-3">
 
                 </fieldset>
 

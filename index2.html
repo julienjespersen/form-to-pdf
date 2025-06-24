@@ -381,9 +381,26 @@
           } // End VUE return {}
         }, // End VUE data {}
         methods: {
+          // test
+          populateDocDefinition() {
+            this.docDefinition.content.push({
+              text: "This is a dynamically added text line.",
+              font: "Roboto",
+              fontSize: 12,
+              color: "#404040",
+              normal: true,
+              bold: false,
+              italics: false,
+              bolditalics: false
+            });
+            this.docDefinition.info.modDate = new Date();
+
+          },
+
           
           // VUE Method
           renderPdf: function (event) {
+            this.populateDocDefinition();
 
             const pdfDocument = pdfMake.createPdf(this.docDefinition);
             
