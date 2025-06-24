@@ -95,12 +95,44 @@ const app = {
         
                 pageSize: 'A4',
                 pageOrientation: 'portrait',
-                pageMargins: [20, 20, 20, 20],
+                pageMargins: [20, 60, 20, 60],
+                header: {
+                    columns: [
+                        {
+                            text: 'Université de Genève',
+                            fontSize: 7.5,
+                            margin: [20, 20, 0, 0]
+                        },
+                        {
+                            text: 'Demande d’immatriculation pour non titulaire d’un certificat de maturité',
+                            fontSize: 12,
+                            alignment: 'right',
+                            margin: [0, 20, 0, 0]
+                        }
+                    ]
+                },
                 footer: function(currentPage, pageCount) {
                     return {
-                        text: 'NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
-                        fontSize: 7.5,
-                        margin: [20, 2, 2, 20]
+                        columns: [
+                            {
+                                text: 'Université de Genève',
+                                fontSize: 7.5,
+                                margin: [20, 2, 2, 20]
+                            },
+                            {
+                                text: 'Demande d’immatriculation pour non titulaire d’un certificat de maturité',
+                                fontSize: 7.5,
+                                alignment: 'center',
+                                margin: [0, 2, 0, 20]
+                            },
+                            {
+                                text: 'NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                                alignment: 'right',
+                                margin: [0, 2, 20, 20],
+                            }
+                        ]
+                        // fontSize: 7.5,
+                        // margin: [20, 2, 2, 20]
                     }
                 },
                 defaultStyle: {
@@ -250,8 +282,8 @@ const app = {
         populateDocDefinition() {
             this.docDefinition.content = [{
                 columns: [
-                    ['col1'],
-                    ['col2']
+                    [],
+                    []
                 ]
             }]
             // this.docDefinition.content = []
