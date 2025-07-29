@@ -1,3 +1,4 @@
+const defaultDate = new Date()
 const app = {
     data() {
         return {
@@ -89,8 +90,8 @@ const app = {
                   keywords: "Keywords for Document",
                   creator: "Université de Genève",
                   producer: "pdfmake-0.2.6",
-                  creationDate: new Date(),
-                  modDate: new Date()
+                  creationDate: defaultDate,
+                  modDate: defaultDate
                 },
         
                 pageSize: 'A4',
@@ -127,7 +128,7 @@ const app = {
                                 margin: [0, 2, 0, 20]
                             },
                             {
-                                text: 'NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                                text: defaultDate.toLocaleDateString('fr-CH') + ' ' + defaultDate.toLocaleTimeString('fr-CH') + ' NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
                                 alignment: 'right',
                                 margin: [0, 2, 20, 20],
                             }
@@ -137,10 +138,10 @@ const app = {
                     }
                 },
                 defaultStyle: {
-                    font: "Roboto",
+                    font: 'Roboto',
                     fontSize: 8,
                     lineHeight: 1.5,
-                    color: "#000000",
+                    color: '#000000',
                     normal: true,
                     bold: false,
                     italics: false,
@@ -149,11 +150,11 @@ const app = {
 
                 },
                 styles: {
-                    "text-left": {
-                      alignment: "left"
+                    'text-left': {
+                      alignment: 'left'
                     },
-                    "text-center": {
-                      alignment: "center"
+                    'text-center': {
+                      alignment: 'center'
                     },
                     'text-right': {
                       alignment: 'right'
@@ -272,8 +273,8 @@ const app = {
     },    
     methods: {
         reset(event) {
-            document.querySelector('form').addEventListener("reset", (event) => { 
-                confirm("Êtes-vous sûr de vouloir effacer toutes les informations et les supprimer du navigateur?") ? localStorage.clear() : event.preventDefault();
+            document.querySelector('form').addEventListener('reset', (event) => { 
+                confirm('Êtes-vous sûr de vouloir effacer toutes les informations et les supprimer du navigateur?') ? localStorage.clear() : event.preventDefault();
                 // localStorage.clear();
             })
         },
@@ -298,7 +299,7 @@ const app = {
                 let current_column = 1
                 if (fieldset.getAttribute('id') === 'fieldset-person'
                 ||  fieldset.getAttribute('id') === 'fieldset-citizen'
-                ||  fieldset.getAttribute('id') === 'fieldset-contact'){
+                ||  fieldset.getAttribute('id') === 'fieldset-contact') {
                     current_column = 0
                 }
                 this.docDefinition.content[0].columns[current_column].push({text: fieldset.querySelector('legend').innerText, style: 'section'})
@@ -354,4 +355,4 @@ const app = {
         // document.head.appendChild(recaptchaScript)        
     }
 }
-Vue.createApp(app).mount("#app");
+Vue.createApp(app).mount('#app');
