@@ -96,20 +96,22 @@ const app = {
         
                 pageSize: 'A4',
                 pageOrientation: 'portrait',
-                pageMargins: [20, 60, 20, 60],
+                pageMargins: [20, 70, 20, 60],
                 header: {
                     columns: [
                         {
                             // if you specify width, svg will scale proportionally
                             svg: logoUnigeSvg,
-                            width: 50,
+                            width: 100,
                             margin: [20, 20, 0, 10]
                         },
                         {
-                            text: 'Demande d’immatriculation pour non titulaire d’un certificat de maturité',
-                            fontSize: 12,
-                            alignment: 'right',
-                            margin: [0, 20, 0, 0]
+                            text: 'Demande d’immatriculation \npour non titulaire d’un certificat de maturité',
+                            fontSize: 16,
+                            bold: true,
+                            lineHeight: 0.9,
+                            alignment: 'left',
+                            margin: [80, 20, 20, 0]
                         }
                     ]
                 },
@@ -122,13 +124,13 @@ const app = {
                                 margin: [20, 2, 2, 20]
                             },
                             {
-                                text: 'Demande d’immatriculation pour non titulaire d’un certificat de maturité',
+                                text: 'Demande d’immatriculation \npour non titulaire d’un certificat de maturité',
                                 fontSize: 7.5,
                                 alignment: 'center',
                                 margin: [0, 2, 0, 20]
                             },
                             {
-                                text: defaultDate.toLocaleDateString('fr-CH') + ' ' + defaultDate.toLocaleTimeString('fr-CH') + ' NPM ' + personLastName + ' ' + currentPage.toString() + ' / ' + pageCount.toString(),
+                                text: personFirstName + ' ' + personLastName + ' \n' + defaultDate.toLocaleDateString('fr-CH') + ' ' + defaultDate.toLocaleTimeString('fr-CH') + '\u2003' + currentPage.toString() + ' / ' + pageCount.toString(),
                                 alignment: 'right',
                                 margin: [0, 2, 20, 20],
                             }
@@ -160,7 +162,7 @@ const app = {
                       alignment: 'right'
                     },
                     'section': {
-                      fontSize: 18,
+                      fontSize: 14,
                       bold: true,
                       color: '#000',
                       marginTop: 20,
