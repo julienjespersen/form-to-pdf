@@ -134,6 +134,24 @@
                     </div>
                 </fieldset>
                 <fieldset id="fieldset-school"><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
+                    <div class="form-text">Études supérieures antérieures</div>
+                    <div class="row border-bottom mb-5">
+                        <div class="col-md-6">
+                            <label for="studentNumber" class="form-label">Numéro d’immatriculation suisse</label>
+                            <input id="studentNumber" type="number" pattern="\d{8,8}" inputmode="numeric" min="0" maxlength="10" v-model="studentNumber" class="form-control" aria-describedby="studentNumberHelp">
+                            <div id="studentNumberHelp" class="form-text mb-3">
+                                à remplir uniquement si vous avez déjà été immatriculé‑e dans une université, une école polytechnique ou une haute école suisse
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="schoolFailure" class="form-label">Avez subi un échec définitif d’une université, d’une école polytechnique ou d’une haute école suisse</label>
+                            <select id="schoolFailure" v-model="citizenAuthorisation" class="form-select fw-bold">
+                                <option selected></option>
+                                <option value="b">Oui</option>
+                                <option value="c">Non</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-text">Études entreprises dès la fin de l’école primaire</div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
