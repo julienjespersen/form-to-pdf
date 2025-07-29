@@ -158,6 +158,12 @@ const app = {
                     'text-right': {
                       alignment: 'right'
                     },
+                    'section': {
+                      fontSize: 18,
+                      bold: true,
+                      color: '#000',
+                      marginTop: 20,
+                    },
                     'entry': {
                       fontSize: 8,
                       bold: true,
@@ -295,16 +301,18 @@ const app = {
                 ||  fieldset.getAttribute('id') === 'fieldset-contact'){
                     current_column = 0
                 }
-                this.docDefinition.content[0].columns[current_column].push({text: fieldset.querySelector('legend').innerText, style: 'bold', marginBottom: 10})
+                this.docDefinition.content[0].columns[current_column].push({text: fieldset.querySelector('legend').innerText, style: 'section'})
             
                 fieldset.querySelectorAll('#app form input, #app form select').forEach((input) => {
-                            if (input.value == '') {
-                                this.docDefinition.content[0].columns[current_column].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
-
-                            } else {
-
-                                this.docDefinition.content[0].columns[current_column].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
-                            }
+                    let prefix = ''
+                    if (input.dataset.leadEntry) {
+                        prefix = input.dataset.leadEntry
+                    }
+                    if (input.value == '') {
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
+                    } else {
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
+                    }
 
                         // if (input.id.substring(0, 6) === 'person'
                         // ||  input.id.substring(0, 7) === 'citizen'

@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<style>
+    <style>
         .form-label {
             font-weight: lighter;
         }
@@ -138,7 +138,7 @@
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
                             <label for="school1" class="form-label">Nom de l’école</label>
-                            <input id="school1" type="text" v-model="school1" class="form-control">
+                            <input id="school1" data-lead-entry="1" type="text" v-model="school1" class="form-control">
                         </div>
                         <div class="col-md-3">
                             <label for="schoolLocation1" class="form-label">Pays ou canton</label>
@@ -164,7 +164,7 @@
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
                             <label for="school2" class="form-label">Nom de l’école</label>
-                            <input id="school2" type="text" v-model="school2" class="form-control">
+                            <input id="school2" data-lead-entry="2" type="text" v-model="school2" class="form-control">
                         </div>
                         <div class="col-md-3">
                             <label for="schoolLocation2" class="form-label">Pays ou canton</label>
@@ -190,7 +190,7 @@
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
                             <label for="school3" class="form-label">Nom de l’école</label>
-                            <input id="school3" type="text" v-model="school3" class="form-control">
+                            <input id="school3" data-lead-entry="3" type="text" v-model="school3" class="form-control">
                         </div>
                         <div class="col-md-3">
                             <label for="schoolLocation3" class="form-label">Pays ou canton</label>
@@ -216,7 +216,7 @@
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
                             <label for="school4" class="form-label">Nom de l’école</label>
-                            <input id="school4" type="text" v-model="school4" class="form-control">
+                            <input id="school4" data-lead-entry="4" type="text" v-model="school4" class="form-control">
                         </div>
                         <div class="col-md-3">
                             <label for="schoolLocation4" class="form-label">Pays ou canton</label>
@@ -239,15 +239,13 @@
                             <input id="schoolDiplomaYear4" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
-
-
                 </fieldset>
 
-                <fieldset id="fieldset-work"><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
+                <fieldset id="fieldset-job"><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
                             <label for="job1" class="form-label">Fonction exercée</label>
-                            <input id="job1" type="text" v-model="job1" class="form-control">
+                            <input id="job1" data-lead-entry="1" type="text" v-model="job1" class="form-control">
                         </div>
                         <div class="col-md-6">
                             <label for="jobLocation1" class="form-label">Nom de l’entreprise</label>
@@ -269,7 +267,29 @@
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
                             <label for="job2" class="form-label">Fonction exercée</label>
-                            <input id="job2" type="text" v-model="job2" class="form-control">
+                            <input id="job2" data-lead-entry="2" type="text" v-model="job2" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="jobLocation2" class="form-label">Nom de l’entreprise</label>
+                            <input id="jobLocation2" type="text" v-model="jobLocation2" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-2 offset-md-3">
+                            <label for="jobStart2" class="form-label">Début</label>
+                            <input id="jobStart2" type="number" min="1930" max="2030" step="1" v-model="jobStart2" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="jobEnd2" class="form-label">Fin</label>
+                            <input id="jobEnd2" type="number" min="1930" max="2030" step="1" v-model="jobEnd2" class="form-control mb-3" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="jobDuration2" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <input id="jobDuration2" type="number" min="1" max="999" step="1" v-model="jobDuration2" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
+                        </div>
+                    </div>
+                    <div class="row border-bottom mb-5">
+                        <div class="col-md-6">
+                            <label for="job3" class="form-label">Fonction exercée</label>
+                            <input id="job3" data-lead-entry="3" type="text" v-model="job3" class="form-control">
                         </div>
                         <div class="col-md-6">
                             <label for="jobLocation3" class="form-label">Nom de l’entreprise</label>
@@ -286,28 +306,6 @@
                         <div class="col-md-5">
                             <label for="jobDuration3" class="form-label">Équivalent en nombre de mois à 100%</label>
                             <input id="jobDuration3" type="number" min="1" max="999" step="1" v-model="jobDuration3" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
-                        </div>
-                    </div>
-                    <div class="row border-bottom mb-5">
-                        <div class="col-md-6">
-                            <label for="job4" class="form-label">Fonction exercée</label>
-                            <input id="job4" type="text" v-model="job4" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="jobLocation4" class="form-label">Nom de l’entreprise</label>
-                            <input id="jobLocation4" type="text" v-model="jobLocation4" class="form-control mb-3">
-                        </div>
-                        <div class="col-md-2 offset-md-3">
-                            <label for="jobStart4" class="form-label">Début</label>
-                            <input id="jobStart4" type="number" min="1930" max="2030" step="1" v-model="jobStart4" class="form-control mb-3" placeholder="AAAA">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="jobEnd4" class="form-label">Fin</label>
-                            <input id="jobEnd4" type="number" min="1930" max="2030" step="1" v-model="jobEnd4" class="form-control mb-3" placeholder="AAAA">
-                        </div>
-                        <div class="col-md-5">
-                            <label for="jobDuration4" class="form-label">Équivalent en nombre de mois à 100%</label>
-                            <input id="jobDuration4" type="number" min="1" max="999" step="1" v-model="jobDuration4" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
                         </div>
                     </div>
                 </fieldset>
