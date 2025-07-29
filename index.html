@@ -50,7 +50,7 @@
         <div id="app">
             <form>
                 <button class="btn btn-warning" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
-                <fieldset><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
+                <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
                     <label for="personFirstName" class="form-label">Prénom(s)</label>
                     <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
 
@@ -86,7 +86,7 @@
                     </select>
                 </fieldset>
 
-                <fieldset><legend><i class="fa-solid fa-passport"></i> Informations civiles</legend>
+                <fieldset id="fieldset-citizen"><legend><i class="fa-solid fa-passport"></i> Informations de nationalité</legend>
                     <label for="citizenNationality" class="form-label">Nationalité</label>
                     <input id="citizenNationality" type="text" v-model="citizenNationality" class="form-control mb-3">
 
@@ -109,7 +109,7 @@
                     </div>
                 </fieldset>
 
-                <fieldset><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
+                <fieldset id="fieldset-contact"><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
                     <label for="contactEmail" class="form-label">Adresse e‑mail</label>
                     <input id="contactEmail" type="text" v-model="contactEmail" class="form-control" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text mb-3">
@@ -133,7 +133,7 @@
                         si votre adresse est en Suisse, indiquez le canton
                     </div>
                 </fieldset>
-                <fieldset><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
+                <fieldset id="fieldset-school"><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
                     <div class="form-text">Études entreprises dès la fin de l’école primaire</div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
@@ -243,7 +243,7 @@
 
                 </fieldset>
 
-                <fieldset><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
+                <fieldset id="fieldset-work"><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
                             <label for="job1" class="form-label">Fonction exercée</label>
@@ -311,7 +311,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <fieldset><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
+                <fieldset id="fieldset-grad"><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
                     <label for="unigeFaculty" class="form-label">Faculté, institut, école</label>
                     <select id="unigeFaculty" v-model="unigeFaculty" class="form-select mb-3 fw-bold">
                         <option selected></option>
@@ -403,6 +403,7 @@
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./unige-logo.js"></script>
     <script src="./test.js"></script>
 
 
