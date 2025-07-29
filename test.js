@@ -311,29 +311,13 @@ const app = {
                     if (input.value == '') {
                         this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
                     } else {
-                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
+                        let inputTxt = input.value
+                        if (input.type === 'date') {
+                            const dateObj = new Date(input.value)
+                            inputTxt = dateObj.toLocaleDateString('fr-CH')
+                        }
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: inputTxt, fontSize: 13, bold: true }],})
                     }
-
-                        // if (input.id.substring(0, 6) === 'person'
-                        // ||  input.id.substring(0, 7) === 'citizen'
-                        // ||  input.id.substring(0, 7) === 'contact') {
-                        //     if (input.value == '') {
-                        //         this.docDefinition.content[0].columns[0].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
-
-                        //     } else {
-
-                        //         this.docDefinition.content[0].columns[0].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
-                        //     }
-                        // } else {
-                        //     if (input.value == '') {
-                        //         this.docDefinition.content[0].columns[1].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
-
-                        //     } else {
-
-                        //         this.docDefinition.content[0].columns[1].push({text: [{ text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: input.value, fontSize: 13, bold: true }],})
-                        //     }
-                        // }
-                    
                 })
             })
         },
