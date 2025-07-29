@@ -24,6 +24,8 @@ const app = {
             contactCity: (contactCity = localStorage.getItem('contactCity')) ? contactCity : '',
             contactCountry: (contactCountry = localStorage.getItem('contactCountry')) ? contactCountry : '',
             // school informations
+            studentNumber: (studentNumber = localStorage.getItem('studentNumber')) ? studentNumber : '',
+            schoolFailure: (schoolFailure = localStorage.getItem('schoolFailure')) ? schoolFailure : '',
             school1: (school1 = localStorage.getItem('school1')) ? school1 : '',
             schoolLocation1: (schoolLocation1 = localStorage.getItem('schoolLocation1')) ? schoolLocation1 : '',
             schoolStart1: (schoolStart1 = localStorage.getItem('schoolStart1')) ? schoolStart1 : '',
@@ -217,6 +219,8 @@ const app = {
         contactCity: function () {localStorage.setItem('city', this.city)},
         contactCountry: function () {localStorage.setItem('country', this.country)},
         // school informations
+        studentNumber: function () {localStorage.setItem('studentNumber', this.studentNumber)},
+        schoolFailure: function () {localStorage.setItem('schoolFailure', this.schoolFailure)},
         school1: function () {localStorage.setItem('school1', this.school1)},
         schoolLocation1: function () {localStorage.setItem('schoolLocation1', this.schoolLocation1)},
         schoolStart1: function () {localStorage.setItem('schoolStart1', this.schoolStart1)},
