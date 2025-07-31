@@ -128,8 +128,8 @@
                     <input id="contactCity" type="text" v-model="contactCity" class="form-control mb-3">
                     
                     <label for="contactCountry" class="form-label">Pays ou canton</label>
-                    <input id="contactCountry" type="text" v-model="contactCountry" class="form-control ">
-                    <div id="authorisationHelp" class="form-text mb-3">
+                    <input id="contactCountry" type="text" v-model="contactCountry" class="form-control" aria-describedby="contactCountryHelp">
+                    <div id="contactCountryHelp" class="form-text mb-3">
                         si votre adresse est en Suisse, indiquez le canton
                     </div>
                 </fieldset>
@@ -137,9 +137,9 @@
                     <div class="form-text">Études supérieures antérieures</div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
-                            <label for="studentNumber" class="form-label">Numéro d’immatriculation suisse</label>
-                            <input id="studentNumber" type="number" pattern="\d{8,8}" inputmode="numeric" min="0" maxlength="10" v-model="studentNumber" class="form-control" aria-describedby="studentNumberHelp">
-                            <div id="studentNumberHelp" class="form-text mb-3">
+                            <label for="schoolStudentNumber" class="form-label">Numéro d’immatriculation suisse</label>
+                            <input id="schoolStudentNumber" type="number" pattern="\d{8,8}" inputmode="numeric" min="0" maxlength="10" v-model="schoolStudentNumber" class="form-control" aria-describedby="schoolStudentNumberHelp">
+                            <div id="schoolStudentNumberHelp" class="form-text mb-3">
                                 à remplir uniquement si vous avez déjà été immatriculé‑e dans une université, une école polytechnique ou une haute école suisse
                             </div>
                         </div>
