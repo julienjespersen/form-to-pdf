@@ -33,7 +33,7 @@
 
 <body class="container">
     <section class="">
-        <h1>Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent</h1>
+        <h1 id="h1">Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent</h1>
         <div class="row bg-info-subtle border-start border-4 border-info text-info-emphasis mb-3">
             <div class="col-1 position-relative">
                 <i class="fa-solid fa-pen-to-square fa-lg position-absolute top-50"></i>
@@ -44,11 +44,11 @@
             <div class="col-1 position-relative">
                 <i class="fa-solid fa-mask fa-lg position-absolute top-50"></i>
             </div>
-            <p class="col-11 pt-2">Après avoir saisi vos informations, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
+            <p class="col-11 pt-2">Après avoir saisi vos informations et téléchargé votre PDF, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
         </div>
 
         <div id="app">
-            <form>
+            <form aria-label="Formulaire de demande d’immatriculation" class="form">
                 <button class="btn btn-warning" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
                 <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
                     <label for="personFirstName" class="form-label">Prénom(s)</label>
@@ -144,12 +144,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="schoolFailure" class="form-label">Avez subi un échec définitif d’une université, d’une école polytechnique ou d’une haute école suisse</label>
-                            <select id="schoolFailure" v-model="citizenAuthorisation" class="form-select fw-bold">
+                            <label for="schoolFailure" class="form-label">Avez subi un échec définitif?</label>
+                            <select id="schoolFailure" v-model="schoolFailure" class="form-select fw-bold" aria-describedby="schoolFailureHelp">
                                 <option selected></option>
                                 <option value="oui">Oui</option>
                                 <option value="non">Non</option>
                             </select>
+                            <div id="schoolFailureHelp" class="form-text mb-3">
+                                ne répondez «oui» que si vous avez subi un échec définitif d’une université, d’une école polytechnique ou d’une haute école suisse
+                            </div>
                         </div>
                     </div>
                     <div class="form-text">Études entreprises dès la fin de l’école primaire</div>
@@ -403,24 +406,34 @@
                         </ul>
                     </dd>
                 </dl>
-                <p>Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
-                <p>Nous attirons l’attention des candidat‑es sur le fait qu’il n’est pas possible de changer de faculté durant les études tant qu’un grade universitaire n’a pas été obtenu. Si les candidat‑es souhaitent choisir une autre orientation, ils/elles doivent introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
+                <div class="row bg-danger-subtle border-start border-4 border-danger text-danger-emphasis mb-3">
+                    <div class="col-1 position-relative">
+                        <i class="fa-solid fa-ban fa-lg position-absolute top-50"></i>
+                    </div>
+                    <p class="col-11 pt-2">Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
+                </div>
+                <div class="row bg-warning-subtle border-start border-4 border-warning text-warning-emphasis mb-3">
+                    <div class="col-1 position-relative">
+                        <i class="fa-solid fa-arrows-split-up-and-left fa-lg position-absolute top-50"></i>
+                    </div>
+                    <p class="col-11 pt-2">Vous ne pouvez pas changer de faculté durant vos études tant que vous n’avez pas obtenu un grade universitaire. Si vous souhaitez choisir une autre orientation, vous devez introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
+                </div>
             </div>
 
             <div class="row">
-                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> Afficher PDF</button>
-                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> Télécharger PDF</button>
+                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> Afficher le PDF</button>
+                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> Télécharger le PDF</button>
             </div>
         </div>
         
         
-        <iframe id="iframePreviewPdf" class="col-12" style="height: 50rem;"></iframe>
+        <iframe id="iframePreviewPdf" class="col-12" title="Demande d’immatriculation à l’Université de Genève pour non titulaire d’un certificat de maturité" style="height: 50rem;"></iframe>
     </section>
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./unige-logo.js"></script>
-    <script src="./test.js"></script>
+    <script src="./npm.js"></script>
 
 
 
