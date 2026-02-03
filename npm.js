@@ -103,7 +103,8 @@ const app = {
                     columns: [
                         {
                             // if you specify width, svg will scale proportionally
-                            svg: logoUnigeSvg,
+                            // svg: logoUnigeSvg,
+                            image: logoUnigePng,
                             width: 100,
                             margin: [20, 20, 0, 10]
                         },
@@ -132,7 +133,7 @@ const app = {
                                 margin: [0, 2, 0, 20]
                             },
                             {
-                                text: personFirstName + ' ' + personLastName + ' \n' + defaultDate.toLocaleDateString('fr-CH') + ' ' + defaultDate.toLocaleTimeString('fr-CH') + '\u2003' + currentPage.toString() + ' / ' + pageCount.toString(),
+                                text: (personFirstName ? personFirstName : '') + ' ' + (personLastName ? personLastName : '') + ' \n' + defaultDate.toLocaleDateString('fr-CH') + ' ' + defaultDate.toLocaleTimeString('fr-CH') + '\u2003' + currentPage.toString() + ' / ' + pageCount.toString(),
                                 alignment: 'right',
                                 margin: [0, 2, 20, 20],
                             }
