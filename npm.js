@@ -348,7 +348,7 @@ const app = {
                 
                 a.href = URL.createObjectURL(file);
                 a.target = "_blank";
-                a.download = 'UNIGE_NPM_' + this.lastName + '.pdf';
+                a.download = 'UNIGE_NPM_' + (this.lastName ? this.lastName : 'sans_nom') + '.pdf';
                 a.click();
               
             });        
@@ -357,9 +357,6 @@ const app = {
     },
     mounted() {
         this.blankLine = this.createBlankLine(20)
-        // let recaptchaScript = document.createElement('script')
-        // recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js')
-        // document.head.appendChild(recaptchaScript)        
     }
 }
 Vue.createApp(app).mount('#app');
