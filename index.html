@@ -49,7 +49,7 @@
 
         <div id="app">
             <form aria-label="Formulaire de demande d’immatriculation" class="form">
-                <button class="btn btn-warning my-3" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+                <button class="btn btn-warning text-body my-3" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
                 <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
                     <label for="personFirstName" class="form-label">Prénom(s)</label>
                     <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
@@ -57,7 +57,7 @@
                     <label for="personLastName" class="form-label">Nom(s)</label>
                     <input id="personLastName" type="text" v-model="personLastName" class="form-control mb-3">
 
-                    <label for="personMaidenName" class="form-label">Nom(s) de jeune fille</label>
+                    <label for="personMaidenName" class="form-label">Nom(s) de célibataire</label>
                     <input id="personMaidenName" type="text" v-model="personMaidenName" class="form-control mb-3">
 
                     <label for="personBirthDate" class="form-label">Date de naissance</label>
@@ -68,6 +68,7 @@
                         <option selected></option>
                         <option value="Femme">Femme</option>
                         <option value="Homme">Homme</option>
+                        <option value="Autre">Autre</option>
                     </select>
 
                     <label for="personNativeLanguage" class="form-label">Langue maternelle</label>
@@ -144,7 +145,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="schoolFailure" class="form-label">Avez subi un échec définitif?</label>
+                            <label for="schoolFailure" class="form-label">Avez-vous subi un échec définitif?</label>
                             <select id="schoolFailure" v-model="schoolFailure" class="form-select fw-bold" aria-describedby="schoolFailureHelp">
                                 <option selected></option>
                                 <option value="oui">Oui</option>
@@ -395,14 +396,14 @@
                     <dt>Documents requis à joindre à votre demande:</dt>
                     <dd>
                         <ul>
-                            <li>Photocopie d’une pièce d’identité</li>
-                            <li>Pour les étrangers domiciliés en Suisse: photocopie du permis de séjour</li>
+                            <li>Copie d’une pièce d’identité</li>
+                            <li>Pour les personnes étrangères domiciliées en Suisse: copie du permis de séjour</li>
                             <li>Photo format passeport collée sur le formulaire</li>
-                            <li>Lettre de motivation (cf. point 6)</li>
+                            <li>Lettre de motivation (2 pages maximum, pour la FPSE <a href="https://www.unige.ch/fapse/infospratiques/inscription/candidatdepourvusdecertificatdematurite" target="_blank">voir leurs conditions</a>)</li>
                             <li>Curriculum Vitæ</li>
                             <li>Certificats de travail, indiquant les dates de prise et fin d’emploi, ainsi que le taux d’activité</li>
-                            <li>Photocopie des diplômes scolaires et professionnels</li>
-                            <li>Preuve de paiement de l’émolument de CHF 65.- (uniquement pour les non-porteurs d’attestations de scolarité suisses)</li>
+                            <li>Copie des diplômes scolaires et professionnels</li>
+                            <li>Preuve de paiement de l’émolument de CHF 65.- (uniquement pour les personnes non-porteuses d’attestations de scolarité suisses)</li>
                         </ul>
                     </dd>
                 </dl>
