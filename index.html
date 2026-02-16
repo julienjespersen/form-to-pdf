@@ -38,7 +38,7 @@
             <div class="col-1 position-relative">
                 <i class="fa-solid fa-pen-to-square fa-lg position-absolute top-50"></i>
             </div>
-            <p class="col-11 pt-2">Les données saisies dans ce formulaire sont automatiquement enregistrées dans <em>ce</em> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
+            <p class="col-11 pt-2">Les données saisies dans ce formulaire sont automatiquement enregistrées dans <b>ce</b> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
         </div>
         <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
             <div class="col-1 position-relative">
@@ -49,7 +49,7 @@
 
         <div id="app">
             <form aria-label="Formulaire de demande d’immatriculation" class="form">
-                <button class="btn btn-warning text-body my-3" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+                <button class="btn btn-warning my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
                 <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
                     <label for="personFirstName" class="form-label">Prénom(s)</label>
                     <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
@@ -332,7 +332,7 @@
                     </div>
                 </fieldset>
                 <fieldset id="fieldset-grad"><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
-                    <label for="unigeFaculty" class="form-label">Faculté, institut, école</label>
+                    <label for="unigeFaculty" class="form-label">Faculté/institut/centre</label>
                     <select id="unigeFaculty" v-model="unigeFaculty" class="form-select mb-3 fw-bold">
                         <option selected></option>
                         <option>Sciences</option>
@@ -346,13 +346,12 @@
                         <option>Traduction et interprétation</option>
                         <option>Global Studies Institute</option>
                         <option>École de langue et civilisation françaises</option>
-                        <option>Centre universitaire d’informatique</option>
                     </select>
 
-                    <label for="unigeTargetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté, institut, école</label>
+                    <label for="unigeTargetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté/institut/centre</label>
                     <input id="unigeTargetDiploma" type="text" v-model="unigeTargetDiploma" class="form-control mb-3">
                     <div class="row">
-                        <div id="unigeArtFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté des lettres</div>
+                        <div id="unigeArtFacultyHelp" class="form-text">Pour les candidat‑es au baccalauréat universitaire à la Faculté des lettres</div>
                         <div class="col-6">
                             <label for="unigeArtFacultyA" class="form-label">Branche A</label>
                             <input id="unigeArtFacultyA" type="text" v-model="unigeArtFacultyA" class="form-control mb-3" aria-describedby="unigeArtFacultyHelp">
@@ -363,7 +362,7 @@
                         </div>
                     </div>
 
-                    <div id="unigeTifFacultyHelp" class="form-text">Pour les candidat‑e au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
+                    <div id="unigeTifFacultyHelp" class="form-text">Pour les candidat‑es au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
                     <div class="row">
                         <div class="col-4">
                             <label for="unigeTifFacultyA" class="form-label">Langue A</label>
@@ -395,6 +394,7 @@
                     </div>
                     </div>
                 </fieldset>
+                <button class="btn btn-warning text-black my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
 
             </form>
             <div class="row">
@@ -407,7 +407,7 @@
                             <li>Photo format passeport collée sur le formulaire</li>
                             <li>Lettre de motivation (2 pages maximum, pour la FPSE <a href="https://www.unige.ch/fapse/infospratiques/inscription/candidatdepourvusdecertificatdematurite" target="_blank">voir leurs conditions</a>)</li>
                             <li>Curriculum Vitæ</li>
-                            <li>Certificats de travail, indiquant les dates de prise et fin d’emploi, ainsi que le taux d’activité</li>
+                            <li>Certificats de travail, indiquant les dates de prise et de fin d’emploi, ainsi que le taux d’activité</li>
                             <li>Copie des diplômes scolaires et professionnels</li>
                             <li>Pour les personnes non-porteuses d’attestations de scolarité suisses: preuve de paiement de l’émolument de CHF 65.-</li>
                         </ul>

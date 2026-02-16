@@ -281,7 +281,7 @@ const app = {
     methods: {
         reset(event) {
             document.querySelector('form').addEventListener('reset', (event) => { 
-                confirm('Êtes-vous sûr de vouloir effacer toutes les informations et les supprimer du navigateur?') ? localStorage.clear() : event.preventDefault();
+                confirm('Êtes-vous sûr‑e de vouloir effacer toutes les informations et les supprimer du navigateur?') ? localStorage.clear() : event.preventDefault();
                 // localStorage.clear();
             })
         },
