@@ -379,15 +379,21 @@
                         </div>
                     </div>
 
-                    <label for="unigeLawFacultyForeignLanguageExam" class="form-label">Pour la Faculté de droit, indiquez la langue étrangère choisie pour le deuxième examen écrit</label>
-                    <select id="unigeLawFacultyForeignLanguageExam" v-model="unigeLawFacultyForeignLanguageExam" class="form-select mb-3 fw-bold">
+                    <div id="unigeLawFacultyHelp" class="form-text">Pour la Faculté de droit</div>
+                    <div class="row">
+                    <div class="col-6">
+                    <label for="unigeLawFacultyForeignLanguageExam" class="form-label">Langue étrangère choisie pour le deuxième examen écrit</label>
+                    <select id="unigeLawFacultyForeignLanguageExam" v-model="unigeLawFacultyForeignLanguageExam" class="form-select mb-3 fw-bold" aria-describedby="unigeLawFacultyHelp">
                         <option selected></option>
                         <option>Allemand</option>
                         <option>Anglais</option>
                     </select>
-                    <label for="unigeLawFacultyThemeExam" class="form-label">Pour la Faculté de droit, indiquez le thème oral que vous souhaitez développer</label>
-                    <input id="unigeLawFacultyThemeExam" type="text" v-model="unigeLawFacultyThemeExam" class="form-control mb-3">
-
+                    </div>
+                    <div class="col-6">
+                    <label for="unigeLawFacultyThemeExam" class="form-label">Thème oral que vous souhaitez développer</label>
+                    <textarea id="unigeLawFacultyThemeExam" type="text" v-model="unigeLawFacultyThemeExam" class="form-control mb-3" aria-describedby="unigeLawFacultyHelp" style="height: 70px"></textarea>
+                    </div>
+                    </div>
                 </fieldset>
 
             </form>
@@ -403,7 +409,7 @@
                             <li>Curriculum Vitæ</li>
                             <li>Certificats de travail, indiquant les dates de prise et fin d’emploi, ainsi que le taux d’activité</li>
                             <li>Copie des diplômes scolaires et professionnels</li>
-                            <li>Preuve de paiement de l’émolument de CHF 65.- (uniquement pour les personnes non-porteuses d’attestations de scolarité suisses)</li>
+                            <li>Pour les personnes non-porteuses d’attestations de scolarité suisses: preuve de paiement de l’émolument de CHF 65.-</li>
                         </ul>
                     </dd>
                 </dl>
