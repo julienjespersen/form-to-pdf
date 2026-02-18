@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulaire de demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent.">
+    <meta name="creator" content="Université de Genève"> 
+    <meta name="author" content="Julien Jespersen">
+    <title>NPM MSP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- PDFMAKE CORE 0.2.6 CDN PRODUCTION -->
+    <!-- <script src="pdfmake-0.2.6/build/pdfmake.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js" integrity="sha512-7BzHjLXs8xehClrkJEtJtAwXxcbLast87k+XekuItHxrMr/v6POWkoKS2/8CU6DHdIjY+A4NwvsBQ8PxoRH7xQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- PDFMAKE VFS_FONTS 0.2.6 LOCAL PRODUCTION -->
+    <!-- <script src="pdfmake-0.2.6/build/vfs_fonts.js"></script> -->
+    <!-- PDFMAKE VFS_FONTS 0.2.6 CDN PRODUCTION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/vfs_fonts.min.js" integrity="sha512-P0bOMePRS378NwmPDVPU455C/TuxDS+8QwJozdc7PGgN8kLqR4ems0U/3DeJkmiE31749vYWHvBOtR+37qDCZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .form-label {
+            font-weight: lighter;
+        }
+        .form-control {
+            font-weight: bolder;
+        }
+        #fieldset-signature {
+            display: none;
+        }
+    </style>
+
+    </head>
+
+<body class="container">
+    <section class="">
+        <h1 id="h1">Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e titulaire d’une maturité spécialisée orientation pédagogie</h1>
+        <div class="row bg-info-subtle border border-4 border-info text-info-emphasis mb-3">
+            <div class="col-1 position-relative">
+                <i class="fa-solid fa-pen-to-square fa-lg position-absolute top-50"></i>
+            </div>
+            <p class="col-11 pt-2">Les données saisies dans ce formulaire sont automatiquement enregistrées dans <b>ce</b> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
+        </div>
+        <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
+            <div class="col-1 position-relative">
+                <i class="fa-solid fa-mask fa-lg position-absolute top-50"></i>
+            </div>
+            <p class="col-11 pt-2">Après avoir saisi vos informations et téléchargé votre PDF, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
+        </div>
+
+        <div id="app">
+            <form aria-label="Formulaire de demande d’immatriculation" class="form">
+                <button class="btn btn-warning my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+                <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
+                    <label for="personFirstName" class="form-label">Prénom(s)</label>
+                    <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
+
+                    <label for="personLastName" class="form-label">Nom(s)</label>
+                    <input id="personLastName" type="text" v-model="personLastName" class="form-control mb-3">
+
+                    <label for="personMaidenName" class="form-label">Nom(s) de célibataire</label>
+                    <input id="personMaidenName" type="text" v-model="personMaidenName" class="form-control mb-3">
+
+                    <label for="personBirthDate" class="form-label">Date de naissance</label>
+                    <input id="personBirthDate" type="date" v-model="personBirthDate" class="form-control mb-3">
+
+                    <label for="personGender" class="form-label">Genre</label>
+                    <select id="personGender" v-model="personGender" class="form-select mb-3 fw-bold">
+                        <option selected></option>
+                        <option value="Femme">Femme</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+
+                    <label for="personNativeLanguage" class="form-label">Langue maternelle</label>
+                    <input id="personNativeLanguage" type="text" v-model="personNativeLanguage" class="form-control mb-3">
+
+                    <label for="personLanguages" class="form-label">Autre(s) langue(s) maîtrisée(s)</label>
+                    <input id="personLanguages" type="text" v-model="personLanguages" class="form-control mb-3">
+
+                    <label for="personMaritalStatus" class="form-label">État civil</label>
+                    <select id="personMaritalStatus" v-model="personMaritalStatus" class="form-select mb-3 fw-bold">
+                        <option selected></option>
+                        <option value="Célibataire">Célibataire</option>
+                        <option value="Marié‑e">Marié‑e</option>
+                        <option value="Divorcé‑e">Divorcé‑e</option>
+                        <option value="Veuf/ve">Veuf/ve</option>
+                    </select>
+                </fieldset>
+
+                <fieldset id="fieldset-citizen"><legend><i class="fa-solid fa-passport"></i> Informations de nationalité</legend>
+                    <label for="citizenNationality" class="form-label">Nationalité</label>
+                    <input id="citizenNationality" type="text" v-model="citizenNationality" class="form-control mb-3">
+
+                    <label for="citizenOriginCanton" class="form-label">Canton d’origine</label>
+                    <input id="citizenOriginCanton" type="text" v-model="citizenOriginCanton" class="form-control" aria-describedby="citizenOriginCantonHelp">
+                    <div id="citizenOriginCantonHelp" class="form-text mb-3">
+                        si Suisse‑sse, indiquez le canton
+                    </div>                
+
+                    <label for="citizenAuthorisation" class="form-label">Permis</label>
+                    <select id="citizenAuthorisation" v-model="citizenAuthorisation" class="form-select fw-bold" aria-describedby="citizenAuthorisationHelp">
+                        <option selected></option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="r">Réfugié‑e</option>
+                        <option value="d">DFAE</option>
+                    </select>
+                    <div id="citizenAuthorisationHelp" class="form-text mb-3">
+                        si non Suisse‑sse, indiquez le type de permis d’établissement
+                    </div>
+                </fieldset>
+
+                <fieldset id="fieldset-contact"><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
+                    <label for="contactEmail" class="form-label">Adresse e‑mail</label>
+                    <input id="contactEmail" type="text" v-model="contactEmail" class="form-control" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text mb-3">
+                        saisissez une adresse e‑mail valide
+                    </div>
+                    <label for="contactPhone" class="form-label">Téléphone</label>
+                    <input id="contactPhone" type="text" v-model="contactPhone" class="form-control mb-3">
+                    
+                    <label for="contactAddress" class="form-label">Adresse</label>
+                    <input id="contactAddress" type="text" v-model="contactAddress" class="form-control mb-3">
+                    
+                    <label for="contactPostalCode" class="form-label">Code postal</label>
+                    <input id="contactPostalCode" type="text" v-model="contactPostalCode" class="form-control mb-3">
+                    
+                    <label for="contactCity" class="form-label">Localité</label>
+                    <input id="contactCity" type="text" v-model="contactCity" class="form-control mb-3">
+                    
+                    <label for="contactCountry" class="form-label">Pays ou canton</label>
+                    <input id="contactCountry" type="text" v-model="contactCountry" class="form-control" aria-describedby="contactCountryHelp">
+                    <div id="contactCountryHelp" class="form-text mb-3">
+                        si votre adresse est en Suisse, indiquez le canton
+                    </div>
+                </fieldset>
+
+                <fieldset id="fieldset-grad"><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à la Faculté de psychologie et des sciences de l’éducation</legend>
+
+                    <label for="unigeTargetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté</label>
+                    <input id="unigeTargetDiploma" type="text" v-model="unigeTargetDiploma" class="form-control mb-3">
+                </fieldset>
+                <fieldset id="fieldset-signature"><legend><i class="fa-solid fa-pen-to-square"></i> Signature</legend>
+                    <label for="personSignatureDate" class="form-label">Date de signature</label>
+                    <input id="personSignatureDate" type="date" v-model="personSignatureDate" class="form-control mb-3">
+                    <label for="personSignature" class="form-label">Signature</label>
+                    <input id="personSignature" type="text" v-model="personSignature" class="form-control mb-3">
+
+                </fieldset>
+                <button class="btn btn-warning text-black my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+
+            </form>
+            <div class="row">
+                <dl>
+                    <dt>Documents requis à joindre à votre demande:</dt>
+                    <dd>
+                        <ul>
+                            <li>Copie d’une pièce d’identité</li>
+                            <li>Pour les personnes étrangères domiciliées en Suisse: copie du permis de séjour</li>
+                            <li>Photo format passeport collée sur le formulaire</li>
+                            <li>Curriculum Vitæ</li>
+                            <li>Copie des diplômes scolaires et professionnels</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <div class="row bg-danger-subtle border border-4 border-danger text-danger-emphasis mb-3">
+                    <div class="col-1 position-relative">
+                        <i class="fa-solid fa-ban fa-lg position-absolute top-50"></i>
+                    </div>
+                    <p class="col-11 pt-2">Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
+                </div>
+                <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
+                    <div class="col-1 position-relative">
+                        <i class="fa-solid fa-arrows-split-up-and-left fa-lg position-absolute top-50"></i>
+                    </div>
+                    <p class="col-11 pt-2">Vous ne pouvez pas changer de faculté durant vos études tant que vous n’avez pas obtenu un grade universitaire. Si vous souhaitez choisir une autre orientation, vous devez introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> Afficher le PDF</button>
+                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> Télécharger le PDF</button>
+            </div>
+        </div>
+        
+        
+        <iframe id="iframePreviewPdf" class="col-12" title="Demande d’immatriculation à l’Université de Genève pour non titulaire d’un certificat de maturité" style="height: 50rem;"></iframe>
+    </section>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./unige-logo.js"></script>
+    <script src="./npm_msp.js"></script>
+
+
+
+</body>
+
+</html>
