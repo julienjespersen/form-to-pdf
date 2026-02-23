@@ -88,8 +88,8 @@ const app = {
                 info: {
                   title: "Demande d’immatriculation à l’Université de Genève pour non titulaire d’un certificat de maturité",
                   author: "Julien.Jespersen@unige.ch",
-                  subject: "Subject of Document",
-                  keywords: "Keywords for Document",
+                  subject: "",
+                  keywords: "",
                   creator: "Université de Genève",
                   producer: "pdfmake-0.2.6",
                   creationDate: defaultDate,
@@ -122,12 +122,12 @@ const app = {
                     return {
                         columns: [
                             {
-                                text: 'Université de Genève',
+                                text: 'Université de Genève \nService des non-porteurs de maturité \n24 rue du Général-Dufour \n1211 Genève 4',
                                 fontSize: 7.5,
                                 margin: [20, 2, 2, 20]
                             },
                             {
-                                text: 'Demande d’immatriculation \npour non titulaire d’un certificat de maturité',
+                                text: 'Demande d’immatriculation à l’UNIGE \npour non titulaire d’un certificat de maturité \n\norientation-npm@unige.ch',
                                 fontSize: 7.5,
                                 alignment: 'center',
                                 margin: [0, 2, 0, 20]
@@ -348,7 +348,7 @@ const app = {
                 
                 a.href = URL.createObjectURL(file);
                 a.target = "_blank";
-                a.download = 'UNIGE_NPM_' + (this.lastName ? this.lastName : 'sans_nom') + '.pdf';
+                a.download = 'UNIGE-NPM_' + (this.lastName ? this.lastName : 'sans-nom') + '.pdf';
                 a.click();
               
             });        
