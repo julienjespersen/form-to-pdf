@@ -57,7 +57,7 @@ const app = {
                         },
                         {
                             text: 'Demande d’immatriculation à l’Université de Genève \npour un‑e candidat‑e titulaire d’une maturité spécialisée orientation pédagogie \n\norientation-npm@unige.ch',
-                            fontSize: 16,
+                            fontSize: 14,
                             bold: true,
                             lineHeight: 0.9,
                             alignment: 'left',
