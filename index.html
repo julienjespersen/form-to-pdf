@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-bs-theme="light dark">
+<html lang="en" data-bs-theme="light dark">
 
 <head>
     <meta charset="utf-8">
@@ -31,384 +31,388 @@
     </head>
 
 <body class="container">
-    <section class="">
-        <h1 id="h1">Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent</h1>
+    <section>
+        <h1 id="h1" data-lang-en="Enrollment application at the University of Geneva for candidates who do not hold a maturité certificate or equivalent degree" data-lang-fr="Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent">Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent</h1>
         <div class="row bg-info-subtle border border-4 border-info text-info-emphasis mb-3">
             <div class="col-1 position-relative">
                 <i class="fa-solid fa-pen-to-square fa-lg position-absolute top-50"></i>
             </div>
-            <p class="col-11 pt-2">Les données saisies dans ce formulaire sont automatiquement enregistrées dans <b>ce</b> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
+            <p class="col-11 pt-2" data-lang-en="The data entered in this form is automatically saved on this browser. You can leave this page at any time and resume filling it out later." data-lang-fr="Les données saisies dans ce formulaire sont automatiquement enregistrées dans ce navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.">Les données saisies dans ce formulaire sont automatiquement enregistrées dans <b>ce</b> navigateur, vous pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
         </div>
         <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
             <div class="col-1 position-relative">
                 <i class="fa-solid fa-mask fa-lg position-absolute top-50"></i>
             </div>
-            <p class="col-11 pt-2" data-lang-en="After edit don’t forget …">Après avoir saisi vos informations et téléchargé votre PDF, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
+            <p class="col-11 pt-2" data-lang-en="After entering your information and downloading your PDF, if you share this browser or device with other people, don't forget to delete your information from this form using the “Clear All” button!" data-lang-fr="Après avoir saisi vos informations et téléchargé votre PDF, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!">Après avoir saisi vos informations et téléchargé votre PDF, si vous partagez ce navigateur ou cette machine avec d’autres personnes, n’oubliez pas de supprimer vos informations de ce formulaire, à l’aide du bouton «Tout effacer»!</p>
         </div>
 
         <div id="app">
             <form aria-label="Formulaire de demande d’immatriculation" class="form">
-                <button class="btn btn-warning my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> <span data-lang-en="Erase all">Effacer</span></button>
-                <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> Informations personnelles</legend>
-                    <label for="personFirstName" class="form-label" data-lang-en="First Name">Prénom(s)</label>
+                <button class="btn btn-warning my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> <span data-lang-en="Clear all" data-lang-fr="Effacer tout">Effacer tout</span></button>
+                <fieldset id="fieldset-person"><legend><i class="fa-solid fa-user"></i> <span data-lang-en=" Personal information" data-lang-fr="Informations personnelles"> Informations personnelles</span></legend>
+                    <label for="personFirstName" class="form-label" data-lang-en="First Name" data-lang-fr="Prénom(s)">Prénom(s)</label>
                     <input id="personFirstName" type="text" v-model="personFirstName" class="form-control mb-3">
 
-                    <label for="personLastName" class="form-label">Nom(s)</label>
+                    <label for="personLastName" class="form-label" data-lang-en="Last Name" data-lang-fr="Nom(s)">Nom(s)</label>
                     <input id="personLastName" type="text" v-model="personLastName" class="form-control mb-3">
 
-                    <label for="personMaidenName" class="form-label">Nom(s) de célibataire</label>
+                    <label for="personMaidenName" class="form-label" data-lang-en="Pre-marriage name(s)" data-lang-fr="Nom(s) de célibataire">Nom(s) de célibataire</label>
                     <input id="personMaidenName" type="text" v-model="personMaidenName" class="form-control mb-3">
 
-                    <label for="personBirthDate" class="form-label">Date de naissance</label>
+                    <label for="personBirthDate" class="form-label" data-lang-en="Date of birth" data-lang-fr="Date de naissance">Date de naissance</label>
                     <input id="personBirthDate" type="date" v-model="personBirthDate" class="form-control mb-3">
 
-                    <label for="personGender" class="form-label">Genre</label>
+                    <label for="personGender" class="form-label" data-lang-en="Gender" data-lang-fr="Genre">Genre</label>
                     <select id="personGender" v-model="personGender" class="form-select mb-3 fw-bold">
                         <option selected></option>
-                        <option value="Femme">Femme</option>
-                        <option value="Homme">Homme</option>
-                        <option value="Autre">Autre</option>
+                        <option data-lang-en="Woman" data-lang-fr="Femme">Femme</option>
+                        <option data-lang-en="Man" data-lang-fr="Homme">Homme</option>
+                        <option data-lang-en="Other" data-lang-fr="Autre">Autre</option>
                     </select>
 
-                    <label for="personNativeLanguage" class="form-label">Langue maternelle</label>
+                    <label for="personNativeLanguage" class="form-label" data-lang-en="Native language" data-lang-fr="Langue maternelle">Langue maternelle</label>
                     <input id="personNativeLanguage" type="text" v-model="personNativeLanguage" class="form-control mb-3">
 
-                    <label for="personLanguages" class="form-label">Autre(s) langue(s) maîtrisée(s)</label>
+                    <label for="personLanguages" class="form-label" data-lang-en="Other languages" data-lang-fr="Autre(s) langue(s) maîtrisée(s)">Autre(s) langue(s) maîtrisée(s)</label>
                     <input id="personLanguages" type="text" v-model="personLanguages" class="form-control mb-3">
 
-                    <label for="personMaritalStatus" class="form-label">État civil</label>
+                    <label for="personMaritalStatus" class="form-label" data-lang-en="Civil status" data-lang-fr="État civil">État civil</label>
                     <select id="personMaritalStatus" v-model="personMaritalStatus" class="form-select mb-3 fw-bold">
                         <option selected></option>
-                        <option value="Célibataire">Célibataire</option>
-                        <option value="Marié‑e">Marié‑e</option>
-                        <option value="Divorcé‑e">Divorcé‑e</option>
-                        <option value="Veuf/ve">Veuf/ve</option>
+                        <option data-lang-en="Single" data-lang-fr="Célibataire">Célibataire</option>
+                        <option data-lang-en="Married" data-lang-fr="Marié‑e">Marié‑e</option>
+                        <option data-lang-en="Divorced" data-lang-fr="Divorcé‑e">Divorcé‑e</option>
+                        <option data-lang-en="Widowed" data-lang-fr="Veuf/ve">Veuf/ve</option>
                     </select>
                 </fieldset>
 
-                <fieldset id="fieldset-citizen"><legend><i class="fa-solid fa-passport"></i> Informations de nationalité</legend>
-                    <label for="citizenNationality" class="form-label">Nationalité</label>
+                <fieldset id="fieldset-citizen"><legend><i class="fa-solid fa-passport"></i> <span data-lang-en=" Citizenship information" data-lang-fr="Informations de nationalité">Informations de nationalité</span></legend>
+                    <label for="citizenNationality" class="form-label" data-lang-en="Nationality" data-lang-fr="Nationalité">Nationalité</label>
                     <input id="citizenNationality" type="text" v-model="citizenNationality" class="form-control mb-3">
 
-                    <label for="citizenOriginCanton" class="form-label">Canton d’origine</label>
+                    <label for="citizenOriginCanton" class="form-label" data-lang-en="Origin canton" data-lang-fr="Canton d’origine">Canton d’origine</label>
                     <input id="citizenOriginCanton" type="text" v-model="citizenOriginCanton" class="form-control" aria-describedby="citizenOriginCantonHelp">
-                    <div id="citizenOriginCantonHelp" class="form-text mb-3">
+                    <div id="citizenOriginCantonHelp" class="form-text mb-3" data-lang-en="if you are a Swiss citizen, state the canton of origin" data-lang-fr="si Suisse‑sse, indiquez le canton" >
                         si Suisse‑sse, indiquez le canton
                     </div>                
 
-                    <label for="citizenAuthorisation" class="form-label">Permis</label>
+                    <label for="citizenAuthorisation" class="form-label" data-lang-en="Permit" data-lang-fr="Permis">Permis</label>
                     <select id="citizenAuthorisation" v-model="citizenAuthorisation" class="form-select fw-bold" aria-describedby="citizenAuthorisationHelp">
                         <option selected></option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
-                        <option value="r">Réfugié‑e</option>
-                        <option value="d">DFAE</option>
+                        <option data-lang-en="B" data-lang-fr="B">B</option>
+                        <option data-lang-en="C" data-lang-fr="C">C</option>
+                        <option data-lang-en="Refugee" data-lang-fr="Réfugié‑e">Réfugié‑e</option>
+                        <option data-lang-en="DFAE" data-lang-fr="DFAE">DFAE</option>
                     </select>
-                    <div id="citizenAuthorisationHelp" class="form-text mb-3">
+                    <div id="citizenAuthorisationHelp" class="form-text mb-3" data-lang-en="if you are not a Swiss citizen, state the kind of residence permit" data-lang-fr="si non Suisse‑sse, indiquez le type de permis d’établissement">
                         si non Suisse‑sse, indiquez le type de permis d’établissement
                     </div>
                 </fieldset>
 
-                <fieldset id="fieldset-contact"><legend><i class="fa-solid fa-address-card"></i> Informations de contact</legend>
-                    <label for="contactEmail" class="form-label">Adresse e‑mail</label>
+                <fieldset id="fieldset-contact"><legend><i class="fa-solid fa-address-card"></i> <span data-lang-en=" Contact details" data-lang-fr="Informations de contact">Informations de contact</span></legend>
+                    <label for="contactEmail" class="form-label" data-lang-en="Email" data-lang-fr="Adresse e‑mail">Adresse e‑mail</label>
                     <input id="contactEmail" type="text" v-model="contactEmail" class="form-control" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text mb-3">
+                    <div id="emailHelp" class="form-text mb-3" data-lang-en="enter a valid email address" data-lang-fr="saisissez une adresse e‑mail valide">
                         saisissez une adresse e‑mail valide
                     </div>
-                    <label for="contactPhone" class="form-label">Téléphone</label>
+                    <label for="contactPhone" class="form-label" data-lang-en="Phone" data-lang-fr="Téléphone">Téléphone</label>
                     <input id="contactPhone" type="text" v-model="contactPhone" class="form-control mb-3">
                     
-                    <label for="contactAddress" class="form-label">Adresse</label>
+                    <label for="contactAddress" class="form-label" data-lang-en="Address" data-lang-fr="Adresse">Adresse</label>
                     <input id="contactAddress" type="text" v-model="contactAddress" class="form-control mb-3">
                     
-                    <label for="contactPostalCode" class="form-label">Code postal</label>
+                    <label for="contactPostalCode" class="form-label" data-lang-en="Postal code" data-lang-fr="Code postal">Code postal</label>
                     <input id="contactPostalCode" type="text" v-model="contactPostalCode" class="form-control mb-3">
                     
-                    <label for="contactCity" class="form-label">Localité</label>
+                    <label for="contactCity" class="form-label" data-lang-en="Town" data-lang-fr="Localité">Localité</label>
                     <input id="contactCity" type="text" v-model="contactCity" class="form-control mb-3">
                     
-                    <label for="contactCountry" class="form-label">Pays ou canton</label>
+                    <label for="contactCountry" class="form-label" data-lang-en="Country or canton" data-lang-fr="Pays ou canton">Pays ou canton</label>
                     <input id="contactCountry" type="text" v-model="contactCountry" class="form-control" aria-describedby="contactCountryHelp">
-                    <div id="contactCountryHelp" class="form-text mb-3">
+                    <div id="contactCountryHelp" class="form-text mb-3" data-lang-en="if your address is in Switzerland, state the canton" data-lang-fr="si votre adresse est en Suisse, indiquez le canton">
                         si votre adresse est en Suisse, indiquez le canton
                     </div>
                 </fieldset>
-                <fieldset id="fieldset-school"><legend><i class="fa-solid fa-school"></i> Parcours scolaire</legend>
-                    <div class="form-text">Études supérieures antérieures</div>
+                <fieldset id="fieldset-school"><legend><i class="fa-solid fa-school"></i> <span data-lang-en=" Academic background" data-lang-fr="Parcours scolaire">Parcours scolaire</span></legend>
+                    <div class="form-text" data-lang-en="Previous higher education" data-lang-fr="Études supérieures antérieures">
+                        Études supérieures antérieures
+                    </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
-                            <label for="schoolStudentNumber" class="form-label">Numéro d’immatriculation suisse</label>
+                            <label for="schoolStudentNumber" class="form-label" data-lang-en="Swiss registration number" data-lang-fr="Numéro d’immatriculation suisse">Numéro d’immatriculation suisse</label>
                             <input id="schoolStudentNumber" type="number" pattern="\d{8,8}" inputmode="numeric" min="0" maxlength="10" v-model="schoolStudentNumber" class="form-control" aria-describedby="schoolStudentNumberHelp">
-                            <div id="schoolStudentNumberHelp" class="form-text mb-3">
+                            <div id="schoolStudentNumberHelp" class="form-text mb-3" data-lang-en="to be filled only if you have already been enrolled in a Swiss university, polytechnic school or higher education institution" data-lang-fr="à remplir uniquement si vous avez déjà été immatriculé‑e dans une université, une école polytechnique ou une haute école suisse">
                                 à remplir uniquement si vous avez déjà été immatriculé‑e dans une université, une école polytechnique ou une haute école suisse
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="schoolFailure" class="form-label">Avez-vous subi un échec définitif?</label>
+                            <label for="schoolFailure" class="form-label" data-lang-en="Have you faced a definitive failure?" data-lang-fr="Avez-vous subi un échec définitif?">Avez-vous subi un échec définitif?</label>
                             <select id="schoolFailure" v-model="schoolFailure" class="form-select fw-bold" aria-describedby="schoolFailureHelp">
                                 <option selected></option>
-                                <option value="oui">Oui</option>
-                                <option value="non">Non</option>
+                                <option data-lang-en="Yes" data-lang-fr="Oui">Oui</option>
+                                <option data-lang-en="No" data-lang-fr="Non">Non</option>
                             </select>
-                            <div id="schoolFailureHelp" class="form-text mb-3">
+                            <div id="schoolFailureHelp" class="form-text mb-3" data-lang-en="only answer “yes” if you have previously faced a definitive failure by a Swiss university, polytechnic school or higher education institution" data-lang-fr="ne répondez «oui» que si vous avez subi un échec définitif d’une université, d’une école polytechnique ou d’une haute école suisse">
                                 ne répondez «oui» que si vous avez subi un échec définitif d’une université, d’une école polytechnique ou d’une haute école suisse
                             </div>
                         </div>
                     </div>
-                    <div class="form-text">Études entreprises dès la fin de l’école primaire</div>
+                    <div class="form-text" data-lang-en="Studies undertaken after completing primary school" data-lang-fr="Études entreprises dès la fin de l’école primaire">
+                        Études entreprises dès la fin de l’école primaire
+                    </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <label for="school1" class="form-label">Nom de l’école</label>
+                            <label for="school1" class="form-label" data-lang-en="School name" data-lang-fr="Nom de l’école">Nom de l’école</label>
                             <input id="school1" data-lead-entry="1" type="text" v-model="school1" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolLocation1" class="form-label">Pays ou canton</label>
+                            <label for="schoolLocation1" class="form-label" data-lang-en="Country or canton" data-lang-fr="Pays ou canton">Pays ou canton</label>
                             <input id="schoolLocation1" type="text" v-model="schoolLocation1" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolStart1" class="form-label">Début</label>
+                            <label for="schoolStart1" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="schoolStart1" type="number" min="1930" max="2030" step="1" v-model="schoolStart1" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolEnd1" class="form-label">Fin</label>
+                            <label for="schoolEnd1" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="schoolEnd1" type="number" min="1930" max="2030" step="1" v-model="schoolEnd1" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-7 offset-md-2">
-                            <label for="schoolDiploma1" class="form-label">Nom du diplôme obtenu</label>
+                            <label for="schoolDiploma1" class="form-label" data-lang-en="Diploma name" data-lang-fr="Nom du diplôme obtenu">Nom du diplôme obtenu</label>
                             <input id="schoolDiploma1" type="text" v-model="schoolDiploma1" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolDiplomaYear1" class="form-label">Année d’obtention</label>
+                            <label for="schoolDiplomaYear1" class="form-label" data-lang-en="Diploma year" data-lang-fr="Année d’obtention">Année d’obtention</label>
                             <input id="schoolDiplomaYear1" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear1" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <label for="school2" class="form-label">Nom de l’école</label>
+                            <label for="school2" class="form-label" data-lang-en="School name" data-lang-fr="Nom de l’école">Nom de l’école</label>
                             <input id="school2" data-lead-entry="2" type="text" v-model="school2" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolLocation2" class="form-label">Pays ou canton</label>
+                            <label for="schoolLocation2" class="form-label" data-lang-en="Country or canton" data-lang-fr="Pays ou canton">Pays ou canton</label>
                             <input id="schoolLocation2" type="text" v-model="schoolLocation2" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolStart2" class="form-label">Début</label>
+                            <label for="schoolStart2" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="schoolStart2" type="number" min="1930" max="2030" step="1" v-model="schoolStart2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolEnd2" class="form-label">Fin</label>
+                            <label for="schoolEnd2" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="schoolEnd2" type="number" min="1930" max="2030" step="1" v-model="schoolEnd2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-7 offset-md-2">
-                            <label for="schoolDiploma2" class="form-label">Nom du diplôme obtenu</label>
+                            <label for="schoolDiploma2" class="form-label" data-lang-en="Diploma name" data-lang-fr="Nom du diplôme obtenu">Nom du diplôme obtenu</label>
                             <input id="schoolDiploma2" type="text" v-model="schoolDiploma2" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolDiplomaYear2" class="form-label">Année d’obtention</label>
+                            <label for="schoolDiplomaYear2" class="form-label" data-lang-en="Diploma year" data-lang-fr="Année d’obtention">Année d’obtention</label>
                             <input id="schoolDiplomaYear2" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <label for="school3" class="form-label">Nom de l’école</label>
+                            <label for="school3" class="form-label" data-lang-en="School name" data-lang-fr="Nom de l’école">Nom de l’école</label>
                             <input id="school3" data-lead-entry="3" type="text" v-model="school3" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolLocation3" class="form-label">Pays ou canton</label>
+                            <label for="schoolLocation3" class="form-label" data-lang-en="Country or canton" data-lang-fr="Pays ou canton">Pays ou canton</label>
                             <input id="schoolLocation3" type="text" v-model="schoolLocation3" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolStart3" class="form-label">Début</label>
+                            <label for="schoolStart3" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="schoolStart3" type="number" min="1930" max="2030" step="1" v-model="schoolStart3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolEnd3" class="form-label">Fin</label>
+                            <label for="schoolEnd3" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="schoolEnd3" type="number" min="1930" max="2030" step="1" v-model="schoolEnd3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-7 offset-md-2">
-                            <label for="schoolDiploma3" class="form-label">Nom du diplôme obtenu</label>
+                            <label for="schoolDiploma3" class="form-label" data-lang-en="Diploma name" data-lang-fr="Nom du diplôme obtenu">Nom du diplôme obtenu</label>
                             <input id="schoolDiploma3" type="text" v-model="schoolDiploma3" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolDiplomaYear3" class="form-label">Année d’obtention</label>
+                            <label for="schoolDiplomaYear3" class="form-label" data-lang-en="Diploma year" data-lang-fr="Année d’obtention">Année d’obtention</label>
                             <input id="schoolDiplomaYear3" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-5">
-                            <label for="school4" class="form-label">Nom de l’école</label>
+                            <label for="school4" class="form-label" data-lang-en="School name" data-lang-fr="Nom de l’école">Nom de l’école</label>
                             <input id="school4" data-lead-entry="4" type="text" v-model="school4" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolLocation4" class="form-label">Pays ou canton</label>
+                            <label for="schoolLocation4" class="form-label" data-lang-en="Country or canton" data-lang-fr="Pays ou canton">Pays ou canton</label>
                             <input id="schoolLocation4" type="text" v-model="schoolLocation4" class="form-control mb-3">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolStart4" class="form-label">Début</label>
+                            <label for="schoolStart4" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="schoolStart4" type="number" min="1930" max="2030" step="1" v-model="schoolStart4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="schoolEnd4" class="form-label">Fin</label>
+                            <label for="schoolEnd4" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="schoolEnd4" type="number" min="1930" max="2030" step="1" v-model="schoolEnd4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-7 offset-md-2">
-                            <label for="schoolDiploma4" class="form-label">Nom du diplôme obtenu</label>
+                            <label for="schoolDiploma4" class="form-label" data-lang-en="Diploma name" data-lang-fr="Nom du diplôme obtenu">Nom du diplôme obtenu</label>
                             <input id="schoolDiploma4" type="text" v-model="schoolDiploma4" class="form-control">
                         </div>
                         <div class="col-md-3">
-                            <label for="schoolDiplomaYear4" class="form-label">Année d’obtention</label>
+                            <label for="schoolDiplomaYear4" class="form-label" data-lang-en="Diploma year" data-lang-fr="Année d’obtention">Année d’obtention</label>
                             <input id="schoolDiplomaYear4" type="number" min="1930" max="2030" step="1" v-model="schoolDiplomaYear4" class="form-control mb-3" placeholder="AAAA">
                         </div>
                     </div>
                 </fieldset>
 
-                <fieldset id="fieldset-job"><legend><i class="fa-solid fa-briefcase"></i> Parcours professionnel</legend>
+                <fieldset id="fieldset-job"><legend><i class="fa-solid fa-briefcase"></i> <span data-lang-en=" Professional background" data-lang-fr="Parcours professionnel"> Parcours professionnel</span></legend>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
-                            <label for="job1" class="form-label">Fonction exercée</label>
+                            <label for="job1" class="form-label" data-lang-en="Job title" data-lang-fr="Fonction exercée">Fonction exercée</label>
                             <input id="job1" data-lead-entry="1" type="text" v-model="job1" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <label for="jobLocation1" class="form-label">Nom de l’entreprise</label>
+                            <label for="jobLocation1" class="form-label" data-lang-en="Company name" data-lang-fr="Nom de l’entreprise">Nom de l’entreprise</label>
                             <input id="jobLocation1" type="text" v-model="jobLocation1" class="form-control mb-3">
                         </div>
                         <div class="col-md-2 offset-md-3">
-                            <label for="jobStart1" class="form-label">Début</label>
+                            <label for="jobStart1" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="jobStart1" type="number" min="1930" max="2030" step="1" v-model="jobStart1" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="jobEnd1" class="form-label">Fin</label>
+                            <label for="jobEnd1" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="jobEnd1" type="number" min="1930" max="2030" step="1" v-model="jobEnd1" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-5">
-                            <label for="jobDuration1" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <label for="jobDuration1" class="form-label" data-lang-en="Duration" data-lang-fr="Durée">Équivalent en nombre de mois à 100%</label>
                             <input id="jobDuration1" type="number" min="1" max="999" step="1" v-model="jobDuration1" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
                         </div>
                     </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
-                            <label for="job2" class="form-label">Fonction exercée</label>
+                            <label for="job2" class="form-label" data-lang-en="Job title" data-lang-fr="Fonction exercée">Fonction exercée</label>
                             <input id="job2" data-lead-entry="2" type="text" v-model="job2" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <label for="jobLocation2" class="form-label">Nom de l’entreprise</label>
+                            <label for="jobLocation2" class="form-label" data-lang-en="Company name" data-lang-fr="Nom de l’entreprise">Nom de l’entreprise</label>
                             <input id="jobLocation2" type="text" v-model="jobLocation2" class="form-control mb-3">
                         </div>
                         <div class="col-md-2 offset-md-3">
-                            <label for="jobStart2" class="form-label">Début</label>
+                            <label for="jobStart2" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="jobStart2" type="number" min="1930" max="2030" step="1" v-model="jobStart2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="jobEnd2" class="form-label">Fin</label>
+                            <label for="jobEnd2" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="jobEnd2" type="number" min="1930" max="2030" step="1" v-model="jobEnd2" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-5">
-                            <label for="jobDuration2" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <label for="jobDuration2" class="form-label" data-lang-en="Duration" data-lang-fr="Durée">Équivalent en nombre de mois à 100%</label>
                             <input id="jobDuration2" type="number" min="1" max="999" step="1" v-model="jobDuration2" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
                         </div>
                     </div>
                     <div class="row border-bottom mb-5">
                         <div class="col-md-6">
-                            <label for="job3" class="form-label">Fonction exercée</label>
+                            <label for="job3" class="form-label" data-lang-en="Job title" data-lang-fr="Fonction exercée">Fonction exercée</label>
                             <input id="job3" data-lead-entry="3" type="text" v-model="job3" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <label for="jobLocation3" class="form-label">Nom de l’entreprise</label>
+                            <label for="jobLocation3" class="form-label" data-lang-en="Company name" data-lang-fr="Nom de l’entreprise">Nom de l’entreprise</label>
                             <input id="jobLocation3" type="text" v-model="jobLocation3" class="form-control mb-3">
                         </div>
                         <div class="col-md-2 offset-md-3">
-                            <label for="jobStart3" class="form-label">Début</label>
+                            <label for="jobStart3" class="form-label" data-lang-en="Start date" data-lang-fr="Début">Début</label>
                             <input id="jobStart3" type="number" min="1930" max="2030" step="1" v-model="jobStart3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-2">
-                            <label for="jobEnd3" class="form-label">Fin</label>
+                            <label for="jobEnd3" class="form-label" data-lang-en="End date" data-lang-fr="Fin">Fin</label>
                             <input id="jobEnd3" type="number" min="1930" max="2030" step="1" v-model="jobEnd3" class="form-control mb-3" placeholder="AAAA">
                         </div>
                         <div class="col-md-5">
-                            <label for="jobDuration3" class="form-label">Équivalent en nombre de mois à 100%</label>
+                            <label for="jobDuration3" class="form-label" data-lang-en="Duration" data-lang-fr="Durée">Équivalent en nombre de mois à 100%</label>
                             <input id="jobDuration3" type="number" min="1" max="999" step="1" v-model="jobDuration3" class="form-control mb-3" style="width: 6rem;" placeholder="MMM">
                         </div>
                     </div>
                 </fieldset>
-                <fieldset id="fieldset-grad"><legend><i class="fa-solid fa-graduation-cap"></i> Études envisagées à l’UNIGE</legend>
-                    <label for="unigeFaculty" class="form-label">Faculté/institut/centre</label>
+                <fieldset id="fieldset-grad"><legend><i class="fa-solid fa-graduation-cap"></i> <span data-lang-en=" Planned studies at UNIGE" data-lang-fr="Études envisagées à l’UNIGE">Études envisagées à l’UNIGE</span></legend>
+                    <label for="unigeFaculty" class="form-label" data-lang-en="Faculty/institute/centre" data-lang-fr="Faculté/institut/centre">Faculté/institut/centre</label>
                     <select id="unigeFaculty" v-model="unigeFaculty" class="form-select mb-3 fw-bold">
                         <option selected></option>
-                        <option>Sciences</option>
-                        <option>Lettres</option>
-                        <option>Sciences de la société</option>
-                        <option>Économie et management</option>
-                        <option>Droit</option>
-                        <option>Théologie</option>
-                        <option>FPSE Psychologie</option>
-                        <option>FPSE Sciences de l’éducation</option>
-                        <option>Traduction et interprétation</option>
-                        <option>Global Studies Institute</option>
-                        <option>École de langue et civilisation françaises</option>
+                        <option data-lang-en="Sciences" data-lang-fr="Sciences">Sciences</option>
+                        <option data-lang-en="Humanities" data-lang-fr="Lettres">Lettres</option>
+                        <option data-lang-en="Social Sciences" data-lang-fr="Sciences de la société">Sciences de la société</option>
+                        <option data-lang-en="Economics and Management" data-lang-fr="Économie et management">Économie et management</option>
+                        <option data-lang-en="Law" data-lang-fr="Droit">Droit</option>
+                        <option data-lang-en="Theology" data-lang-fr="Théologie">Théologie</option>
+                        <option data-lang-en="FPSE Psychology" data-lang-fr="FPSE Psychologie">FPSE Psychologie</option>
+                        <option data-lang-en="FPSE Educational Sciences" data-lang-fr="FPSE Sciences de l’éducation">FPSE Sciences de l’éducation</option>
+                        <option data-lang-en="Translation and Interpreting" data-lang-fr="Traduction et interprétation">Traduction et interprétation</option>
+                        <option data-lang-en="Global Studies Institute" data-lang-fr="Global Studies Institute">Global Studies Institute</option>
+                        <option data-lang-en="School of French Language and Civilization" data-lang-fr="École de langue et civilisation françaises">École de langue et civilisation françaises</option>
                     </select>
 
-                    <label for="unigeTargetDiploma" class="form-label">Dénomination du titre postulé au sein de la faculté/institut/centre</label>
+                    <label for="unigeTargetDiploma" class="form-label" data-lang-en="Name of the program applied for within the faculty/institute/centre" data-lang-fr="Dénomination du titre postulé au sein de la faculté/institut/centre">Dénomination du titre postulé au sein de la faculté/institut/centre</label>
                     <input id="unigeTargetDiploma" type="text" v-model="unigeTargetDiploma" class="form-control mb-3">
                     <div class="row">
-                        <div id="unigeArtFacultyHelp" class="form-text">Pour les candidat‑es au baccalauréat universitaire à la Faculté des lettres</div>
+                        <div id="unigeArtFacultyHelp" class="form-text" data-lang-en="For candidates for a bachelor's degree at the Faculty of Humanities" data-lang-fr="Pour les candidat‑es au baccalauréat universitaire à la Faculté des lettres">Pour les candidat‑es au baccalauréat universitaire à la Faculté des lettres</div>
                         <div class="col-6">
-                            <label for="unigeArtFacultyA" class="form-label">Branche A</label>
+                            <label for="unigeArtFacultyA" class="form-label" data-lang-en="Branch A" data-lang-fr="Branche A">Branche A</label>
                             <input id="unigeArtFacultyA" type="text" v-model="unigeArtFacultyA" class="form-control mb-3" aria-describedby="unigeArtFacultyHelp">
                         </div>
                         <div class="col-6">
-                            <label for="unigeArtFacultyB" class="form-label">Branche B</label>
+                            <label for="unigeArtFacultyB" class="form-label" data-lang-en="Branch B" data-lang-fr="Branche B">Branche B</label>
                             <input id="unigeArtFacultyB" type="text" v-model="unigeArtFacultyB" class="form-control mb-3" aria-describedby="unigeArtFacultyHelp">
                         </div>
                     </div>
 
-                    <div id="unigeTifFacultyHelp" class="form-text">Pour les candidat‑es au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
+                    <div id="unigeTifFacultyHelp" class="form-text" data-lang-en="For candidates for a bachelor's degree at the Faculty of Translation and Interpreting" data-lang-fr="Pour les candidat‑es au baccalauréat universitaire à la Faculté de traduction et d’interprétation">Pour les candidat‑es au baccalauréat universitaire à la Faculté de traduction et d’interprétation</div>
                     <div class="row">
                         <div class="col-4">
-                            <label for="unigeTifFacultyA" class="form-label">Langue A</label>
+                            <label for="unigeTifFacultyA" class="form-label" data-lang-en="Language A" data-lang-fr="Langue A">Langue A</label>
                             <input id="unigeTifFacultyA" type="text" v-model="unigeTifFacultyA" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                         <div class="col-4">
-                            <label for="unigeTifFacultyB" class="form-label">Langue B</label>
+                            <label for="unigeTifFacultyB" class="form-label" data-lang-en="Language B" data-lang-fr="Langue B">Langue B</label>
                             <input id="unigeTifFacultyB" type="text" v-model="unigeTifFacultyB" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                         <div class="col-4">
-                            <label for="unigeTifFacultyC" class="form-label">Langue C</label>
+                            <label for="unigeTifFacultyC" class="form-label" data-lang-en="Language C" data-lang-fr="Langue C">Langue C</label>
                             <input id="unigeTifFacultyC" type="text" v-model="unigeTifFacultyC" class="form-control mb-3" aria-describedby="unigeTifFacultyHelp">
                         </div>
                     </div>
 
-                    <div id="unigeLawFacultyHelp" class="form-text">Pour la Faculté de droit</div>
+                    <div id="unigeLawFacultyHelp" class="form-text" data-lang-en="For the Faculty of Law" data-lang-fr="Pour la Faculté de droit">Pour la Faculté de droit</div>
                     <div class="row">
                     <div class="col-6">
-                    <label for="unigeLawFacultyForeignLanguageExam" class="form-label">Langue étrangère choisie pour le deuxième examen écrit</label>
+                    <label for="unigeLawFacultyForeignLanguageExam" class="form-label" data-lang-en="Foreign language chosen for the second written exam" data-lang-fr="Langue étrangère choisie pour le deuxième examen écrit">Langue étrangère choisie pour le deuxième examen écrit</label>
                     <select id="unigeLawFacultyForeignLanguageExam" v-model="unigeLawFacultyForeignLanguageExam" class="form-select mb-3 fw-bold" aria-describedby="unigeLawFacultyHelp">
                         <option selected></option>
-                        <option>Allemand</option>
-                        <option>Anglais</option>
+                        <option data-lang-en="German" data-lang-fr="Allemand">Allemand</option>
+                        <option data-lang-en="English" data-lang-fr="Anglais">Anglais</option>
                     </select>
                     </div>
                     <div class="col-6">
-                    <label for="unigeLawFacultyThemeExam" class="form-label">Thème oral que vous souhaitez développer</label>
+                    <label for="unigeLawFacultyThemeExam" class="form-label" data-lang-en="Oral topic you wish to develop" data-lang-fr="Thème oral que vous souhaitez développer">Thème oral que vous souhaitez développer</label>
                     <textarea id="unigeLawFacultyThemeExam" type="text" v-model="unigeLawFacultyThemeExam" class="form-control mb-3" aria-describedby="unigeLawFacultyHelp" style="height: 70px"></textarea>
                     </div>
                     </div>
                 </fieldset>
-                <button class="btn btn-warning text-black my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> Tout effacer</button>
+                <button class="btn btn-warning text-black my-3" style="color: black !important" type="reset" @click="reset"><i class="fa-solid fa-eraser"></i> <span data-lang-en="Clear All" data-lang-fr="Tout effacer">Tout effacer</span></button>
 
             </form>
             <div class="row">
                 <dl>
-                    <dt>Documents requis à joindre à votre demande:</dt>
+                    <dt data-lang-en="Required documents to attach to your application:" data-lang-fr="Documents requis à joindre à votre demande:">Documents requis à joindre à votre demande:</dt>
                     <dd>
                         <ul>
-                            <li>Copie d’une pièce d’identité</li>
-                            <li>Pour les personnes étrangères domiciliées en Suisse: copie du permis de séjour</li>
-                            <li>Photo format passeport collée sur le formulaire</li>
-                            <li>Lettre de motivation (2 pages maximum, pour la FPSE <a href="https://www.unige.ch/fapse/infospratiques/inscription/candidatdepourvusdecertificatdematurite" target="_blank">voir leurs conditions</a>)</li>
-                            <li>Curriculum Vitæ</li>
-                            <li>Certificats de travail, indiquant les dates de prise et de fin d’emploi, ainsi que le taux d’activité</li>
-                            <li>Copie des diplômes scolaires et professionnels</li>
-                            <li>Pour les personnes non-porteuses d’attestations de scolarité suisses: preuve de paiement de l’émolument de CHF 65.-</li>
+                            <li data-lang-en="Copy of identity document" data-lang-fr="Copie d’une pièce d’identité">Copie d’une pièce d’identité</li>
+                            <li data-lang-en="For foreign individuals residing in Switzerland: copy of residence permit" data-lang-fr="Pour les personnes étrangères domiciliées en Suisse: copie du permis de séjour">Pour les personnes étrangères domiciliées en Suisse: copie du permis de séjour</li>
+                            <li data-lang-en="Passport-sized photo affixed to the form" data-lang-fr="Photo format passeport collée sur le formulaire">Photo format passeport collée sur le formulaire</li>
+                            <li><span data-lang-en="Cover letter (2 pages maximum, for the FPSE " data-lang-fr="Lettre de motivation (2 pages maximum, pour la FPSE ">Lettre de motivation (2 pages maximum, pour la FPSE </span><a href="https://www.unige.ch/fapse/infospratiques/inscription/candidatdepourvusdecertificatdematurite" target="_blank" data-lang-en="see their conditions (FR)" data-lang-fr="voir leurs conditions">voir leurs conditions</a>)</li>
+                            <li data-lang-en="Resume" data-lang-fr="Curriculum Vitæ">Curriculum Vitæ</li>
+                            <li data-lang-en="Certificates of employment, stating the start and end dates of employment, as well as the employment rate" data-lang-fr="Certificats de travail, indiquant les dates de prise et de fin d’emploi, ainsi que le taux d’activité">Certificats de travail, indiquant les dates de prise et de fin d’emploi, ainsi que le taux d’activité</li>
+                            <li data-lang-en="Copy of academic and professional degrees" data-lang-fr="Copie des diplômes scolaires et professionnels">Copie des diplômes scolaires et professionnels</li>
+                            <li data-lang-en="For individuals who do not have Swiss school certificates: proof of paymen of the CHF 65.- fee" data-lang-fr="Pour les personnes non-porteuses d’attestations de scolarité suisses: preuve de paiement de l’émolument de CHF 65.-">Pour les personnes non-porteuses d’attestations de scolarité suisses: preuve de paiement de l’émolument de CHF 65.-</li>
                         </ul>
                     </dd>
                 </dl>
@@ -416,19 +420,19 @@
                     <div class="col-1 position-relative">
                         <i class="fa-solid fa-ban fa-lg position-absolute top-50"></i>
                     </div>
-                    <p class="col-11 pt-2">Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
+                    <p class="col-11 pt-2" data-lang-en="Any required document not included in the application file will result in the cancellation of the enrollment application" data-lang-fr="Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.">Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.</p>
                 </div>
                 <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
                     <div class="col-1 position-relative">
                         <i class="fa-solid fa-arrows-split-up-and-left fa-lg position-absolute top-50"></i>
                     </div>
-                    <p class="col-11 pt-2">Vous ne pouvez pas changer de faculté durant vos études tant que vous n’avez pas obtenu un grade universitaire. Si vous souhaitez choisir une autre orientation, vous devez introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
+                    <p class="col-11 pt-2" data-lang-en="You cannot change faculties during your studies until you have obtained a university degree. If you wish to choose a different field of study, you must submit a new enrollment application within the legal time frame, i.e., between March 1 and November 30." data-lang-fr="Vous ne pouvez pas changer de faculté durant vos études tant que vous n’avez pas obtenu un grade universitaire. Si vous souhaitez choisir une autre orientation, vous devez introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1er mars au 30 novembre.">Vous ne pouvez pas changer de faculté durant vos études tant que vous n’avez pas obtenu un grade universitaire. Si vous souhaitez choisir une autre orientation, vous devez introduire une nouvelle demande d’immatriculation dans les délais légaux, à savoir du 1<sup>er</sup> mars au 30 novembre.</p>
                 </div>
             </div>
 
             <div class="row">
-                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> Afficher le PDF</button>
-                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> Télécharger le PDF</button>
+                <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> <span data-lang-en="Preview PDF" data-lang-fr="Aperçu du PDF">Aperçu du PDF</span></button>
+                <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> <span data-lang-en="Download PDF" data-lang-fr="Télécharger le PDF">Télécharger le PDF</span></button>
             </div>
         </div>
         
