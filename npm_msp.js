@@ -173,6 +173,14 @@ const app = {
         personSignature: function () {localStorage.setItem('personSignature', this.personSignature)},
     },
     methods: {
+        populateLanguageEn() {
+            document.querySelectorAll('*').forEach((el) => {
+                if (el.dataset.langEn) {
+                    el.innerText = el.dataset.langEn;
+                }
+            });
+        },
+
         reset(event) {
             document.querySelector('form').addEventListener('reset', (event) => { 
                 confirm('Êtes-vous sûr‑e de vouloir effacer toutes les informations et les supprimer du navigateur?') ? localStorage.clear() : event.preventDefault();
@@ -252,6 +260,9 @@ const app = {
     },
     mounted() {
         this.blankLine = this.createBlankLine(20)
+        if (document.querySelector('html').getAttribute('lang') == 'en') {
+            this.populateLanguageEn()
+        }
     }
 }
 Vue.createApp(app).mount('#app');
