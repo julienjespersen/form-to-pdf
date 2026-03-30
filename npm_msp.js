@@ -70,12 +70,10 @@ const app = {
                         columns: [
                             {
                                 text: 'Université de Genève \nService des non-porteurs de maturité \n24 rue du Général-Dufour \n1211 Genève 4',
-                                fontSize: 7.5,
                                 margin: [20, 2, 2, 20]
                             },
                             {
                                 text: 'Demande d’immatriculation à l’UNIGE pour un‑e titulaire \nd’une maturité spécialisée orientation pédagogie \n\norientation-npm@unige.ch',
-                                fontSize: 7.5,
                                 alignment: 'center',
                                 margin: [0, 2, 0, 20]
                             },
@@ -84,9 +82,9 @@ const app = {
                                 alignment: 'right',
                                 margin: [0, 2, 20, 20],
                             }
-                        ]
-                        // fontSize: 7.5,
-                        // margin: [20, 2, 2, 20]
+                        ],
+                        fontSize: 7.0,
+                        lineHeight: 1.1,
                     }
                 },
                 defaultStyle: {
@@ -95,7 +93,6 @@ const app = {
                     lineHeight: 1.5,
                     color: '#000000',
                     normal: true,
-                    bold: false,
                     italics: false,
                     bolditalics: false,
                     marginBottom: 10,
@@ -121,6 +118,11 @@ const app = {
                       fontSize: 8,
                       bold: true,
                       color: '#555',
+                    },
+                    'muted': {
+                      fontSize: 6,
+                      color: '#555',
+                      marginBottom: 6,
                     },
                     'value': {
                       fontSize: 12,
@@ -201,7 +203,8 @@ const app = {
                 columns: [
                     [],
                     []
-                ]
+                ],
+                columnGap: 10
             }]
             // this.docDefinition.content = []
             document.querySelectorAll('#app form fieldset').forEach((fieldset) => {
@@ -211,22 +214,26 @@ const app = {
                 ||  fieldset.getAttribute('id') === 'fieldset-contact') {
                     current_column = 0
                 }
-                this.docDefinition.content[0].columns[current_column].push({text: fieldset.querySelector('legend').innerText, style: 'section'})
+                this.docDefinition.content[0].columns[current_column].push({text: fieldset.querySelector('legend span').dataset.langFr, style: 'section'})
             
-                fieldset.querySelectorAll('#app form input, #app form select').forEach((input) => {
+                fieldset.querySelectorAll('input,  select, .form-text').forEach((input) => {
                     let prefix = ''
                     if (input.dataset.leadEntry) {
                         prefix = input.dataset.leadEntry
                     }
-                    if (input.value == '') {
-                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
+                    if (input.classList.contains('text-muted')) {
+                        this.docDefinition.content[0].columns[current_column].push({text: input.dataset.langFr, style: 'muted' })
+                    } else if (input.classList.contains('form-text')) {
+                        this.docDefinition.content[0].columns[current_column].push({text: input.dataset.langFr, style: 'entry' })
+                    } else if (input.value == '') {
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
                     } else {
                         let inputTxt = input.value
                         if (input.type === 'date') {
                             const dateObj = new Date(input.value)
                             inputTxt = dateObj.toLocaleDateString('fr-CH')
                         }
-                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.innerText, style: 'entry' }, {text: ': '}, { text: inputTxt, fontSize: 13, bold: true }],})
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: inputTxt, fontSize: 13, bold: true }],})
                     }
                 })
             }),
@@ -236,7 +243,7 @@ const app = {
             this.populateDocDefinition()
             const pdfDocument = pdfMake.createPdf(this.docDefinition)
             pdfDocument.getDataUrl((dataUrl) => {
-                document.querySelector("#iframePreviewPdf").src = dataUrl;
+                document.querySelector('#iframePreviewPdf').src = dataUrl;
               });
         },
         downloadPdf() {
@@ -245,12 +252,12 @@ const app = {
 
             pdfDocument.getBlob((blob) => {
         
-                const file = new Blob([blob], {type: "application/octet-stream"});
+                const file = new Blob([blob], {type: 'application/octet-stream'});
                 
                 const a = document.createElement("a");
                 
                 a.href = URL.createObjectURL(file);
-                a.target = "_blank";
+                a.target = '_blank';
                 a.download = 'UNIGE-NPM-MSP_' + (this.lastName ? this.lastName : 'sans-nom') + '.pdf';
                 a.click();
               
