@@ -185,8 +185,11 @@ const app = {
 
         reset(event) {
             document.querySelector('form').addEventListener('reset', (event) => { 
-                confirm('Êtes-vous sûr‑e de vouloir effacer toutes les informations et les supprimer du navigateur?') ? localStorage.clear() : event.preventDefault();
-                // localStorage.clear();
+                let confirmMsg = 'Êtes-vous sûr‑e de vouloir effacer toutes les informations et les supprimer du navigateur?'
+                if (document.querySelector('html').getAttribute('lang') == 'en') {
+                    confirmMsg = 'Are you sure you want to clear all information and delete it from the browser?'
+                }
+                confirm(confirmMsg) ? localStorage.clear() : event.preventDefault();
             })
         },
 
@@ -226,14 +229,14 @@ const app = {
                     } else if (input.classList.contains('form-text')) {
                         this.docDefinition.content[0].columns[current_column].push({text: input.dataset.langFr, style: 'entry' })
                     } else if (input.value == '') {
-                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13, bold: true }],})
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: this.blankLine, fontSize: 13 }],})
                     } else {
                         let inputTxt = input.value
                         if (input.type === 'date') {
                             const dateObj = new Date(input.value)
                             inputTxt = dateObj.toLocaleDateString('fr-CH')
                         }
-                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: inputTxt, fontSize: 13, bold: true }],})
+                        this.docDefinition.content[0].columns[current_column].push({text: [{text: prefix + ' ', fontSize: 13}, {text: input.previousElementSibling.dataset.langFr, style: 'entry' }, {text: ': '}, { text: inputTxt, fontSize: 9, bold: true }],})
                     }
                 })
             }),

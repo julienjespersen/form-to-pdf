@@ -37,7 +37,7 @@
         data-lang-fr="Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de maturité ou d’un titre jugé équivalent">
         Demande d’immatriculation à l’Université de Genève pour un‑e candidat‑e non titulaire d’un certificat de
         maturité ou d’un titre jugé équivalent</h1>
-    <div class="row bg-info-subtle border border-4 border-info text-info-emphasis mb-3">
+    <div class="row border-info border-start border-4 text-info fw-bold bg-info bg-opacity-10 mb-3">
         <div class="col-1 position-relative">
             <i class="fa-solid fa-pen-to-square fa-lg position-absolute top-50"></i>
         </div>
@@ -47,7 +47,7 @@
             Les données saisies dans ce formulaire sont automatiquement enregistrées dans <b>ce</b> navigateur, vous
             pouvez quitter cette page à tout moment et continuer la saisie plus tard.</p>
     </div>
-    <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
+    <div class="row border-warning border-start border-4 text-dark fw-bold bg-warning bg-opacity-10 mb-3">
         <div class="col-1 position-relative">
             <i class="fa-solid fa-mask fa-lg position-absolute top-50"></i>
         </div>
@@ -585,7 +585,7 @@
                     </ul>
                 </dd>
             </dl>
-            <div class="row bg-danger-subtle border border-4 border-danger text-danger-emphasis mb-3">
+            <div class="row border-danger border-start border-4 text-danger fw-bold bg-danger bg-opacity-10 mb-3">
                 <div class="col-1 position-relative">
                     <i class="fa-solid fa-ban fa-lg position-absolute top-50"></i>
                 </div>
@@ -595,7 +595,7 @@
                     Tout document requis non joint au dossier entraînera l’annulation de la demande d’immatriculation.
                 </p>
             </div>
-            <div class="row bg-warning-subtle border border-4 border-warning text-warning-emphasis mb-3">
+            <div class="row border-warning border-start border-4 text-dark fw-bold bg-warning bg-opacity-10 mb-3">
                 <div class="col-1 position-relative">
                     <i class="fa-solid fa-arrows-split-up-and-left fa-lg position-absolute top-50"></i>
                 </div>
@@ -610,10 +610,10 @@
         </div>
 
         <div class="row">
-            <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> <span
-                    data-lang-en="Preview PDF" data-lang-fr="Aperçu du PDF">Aperçu du PDF</span></button>
-            <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> <span
-                    data-lang-en="Download PDF" data-lang-fr="Télécharger le PDF">Télécharger le PDF</span></button>
+            <button class="col-3 mx-3 btn btn-secondary" @click="printOut"><i class="fa-solid fa-eye"></i> 
+                <span data-lang-en="Preview PDF (in French)" data-lang-fr="Aperçu du PDF">Aperçu du PDF</span></button>
+            <button class="col-3 mx-3 btn btn-primary" @click="downloadPdf"><i class="fa-solid fa-download"></i> 
+                <span data-lang-en="Download PDF (in French)" data-lang-fr="Télécharger le PDF">Télécharger le PDF</span></button>
         </div>
     </div>
 
